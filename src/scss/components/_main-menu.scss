@@ -1,0 +1,17 @@
+nav{
+  background-color: fade-in(#fff, 0.5);
+  width: 450px;
+  margin: 12px auto;
+  position: fixed;
+  top: 12px;
+  left: calc(50% - 225px);
+  border-radius: 12px;
+  ul{
+    display: flex;    
+    list-style: none;
+    li{
+      flex: 1 1 0;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@use "../abstracts/" as *;
+#hero{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  .hero__bg-img{
+    margin:1.5em;
+    max-width: 30%;
+  }
+  // .hero__content{
+  //   flex: 2 1 0;
+  // }
+  h1{
+    color:$primary-color;
+
+  }
+  p{
+    font-size: clamp(1.1em, 2.4vw, 2.4em);
+    line-height: 1;
+    margin: 0;
+    font-weight: 900;
+  }
+}

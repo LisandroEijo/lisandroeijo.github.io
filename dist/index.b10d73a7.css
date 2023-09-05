@@ -1,3 +1,34 @@
+.main-menu {
+  background-color: #ffffffd1;
+  border-radius: .75rem;
+  margin: 0 auto;
+  padding: 1.5em;
+}
+
+.main-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.main-menu ul li {
+  text-align: center;
+  flex: 1 1 0;
+  padding: .75rem 1.5rem;
+}
+
+.main-menu ul li.active {
+  border-bottom: 3px solid #e33575;
+}
+
+.main-menu ul li a {
+  color: #3e3366;
+  font-size: 1rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
 body {
   color: #3e3366;
   font-family: Nunito Sans, arial, sans-serif;
@@ -13,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: clamp(3em, 10vw, 6.75em);
+  font-size: 4.5rem;
   line-height: 1;
 }
 
@@ -26,24 +57,42 @@ p {
   font-size: clamp(1em, 2vw, 1.2em);
 }
 
-nav {
-  background-color: #fff;
-  border-radius: 12px;
-  width: 450px;
-  margin: 12px auto;
-  position: fixed;
-  top: 12px;
-  left: calc(50% - 225px);
-}
-
-nav ul {
-  list-style: none;
+.container {
+  width: 95vw;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
 }
 
-nav ul li {
+.container--vertically-center {
+  align-items: center;
+}
+
+.container .col {
+  flex: 0 0 1px;
+}
+
+a {
+  color: #e33575;
+}
+
+a:hover {
+  color: #ea6294;
+}
+
+section {
+  min-height: 100vh;
+}
+
+section h2 {
   text-align: center;
-  flex: 1 1 0;
+}
+
+header {
+  width: 90%;
+  margin: 1rem 5%;
+  display: flex;
+  position: fixed;
 }
 
 #hero {
@@ -60,11 +109,12 @@ nav ul li {
 
 #hero h1 {
   color: #e33575;
+  font-size: clamp(3em, 9vw, 6.75em);
 }
 
 #hero p {
   margin: 0;
-  font-size: clamp(1.1em, 2.4vw, 2.4em);
+  font-size: clamp(1.1em, 2.4vw, 2em);
   font-weight: 900;
   line-height: 1;
 }

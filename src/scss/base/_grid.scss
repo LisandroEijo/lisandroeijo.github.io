@@ -1,0 +1,13 @@
+.container{
+  width: 95vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  &--vertically-center{
+    align-items: center;
+  }
+  .col{
+    flex: 0 0 1;
+  }
+
+}

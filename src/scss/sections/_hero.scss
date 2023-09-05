@@ -13,10 +13,10 @@
   // }
   h1{
     color:$primary-color;
-
+    font-size: clamp(3em, 9vw, 6.75em);  
   }
   p{
-    font-size: clamp(1.1em, 2.4vw, 2.4em);
+    font-size: clamp(1.1em, 2.4vw, 2em);
     line-height: 1;
     margin: 0;
     font-weight: 900;

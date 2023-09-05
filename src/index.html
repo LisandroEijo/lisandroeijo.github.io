@@ -11,22 +11,35 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav class="main-menu">
+            <ul>
+                <li class="active"><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <section id="hero">
-        <div class="hero__content">
-            <h1><span>Hola, Soy </span><br>Lisandro Eijo.</h1>
-            <p>UX/UI Designer + Product Designer + UI dev</p>
+        <div class="container">
+            <div class="hero__content">
+                <h1><span>Hola, soy </span><br>Lisandro Eijo.</h1>
+                <p>UX/UI Designer + Product Designer + UI dev</p>
+            </div>
+            <img src="assets/img/hero-bg-img.png" alt="" class="hero__bg-img">
         </div>
-        <img src="assets/img/hero-bg-img.png" alt="" class="hero__bg-img">
     </section>
     <section id="about">
         <h2>About</h2>
+        <div class="container container--vertically-center">
+            <div class="col-l">
+                <img src="assets/img/my__photo.png" alt="">
+            </div>
+            <div class="col-r">
+                <p>Soy un diseñador de productos digitales con base en La Plata, con más de 15 años de experiencia. He trabajado como diseñador de UX/UI y UI developer por los últimos 10 años, y liderando equipos en los últimos 4. También tengo experiencia como ilustrador, concept artist, pixel artist y diseñador gráfico. </p>
+                <a href="">descargar CV</a>
+            </div>
+        </div>
     </section>
     <section id="work" >
         <h2>Work</h2>

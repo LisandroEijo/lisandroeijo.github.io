@@ -29,4 +29,8 @@ h1 {
 p {
   font-size: clamp(1em, 2vw, 1.2em);
   color: a.$secondary-color;
+  .strong{
+    color: a.$primary-color;
+    font-weight: 900;
+  }
 }

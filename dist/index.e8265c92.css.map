@@ -1,1 +1,0 @@
-{"mappings":"AAAA","sources":["src/scss/style.scss"],"sourcesContent":["body{\n    background: #000;\n    color: white;\n    font-family: Arial, Helvetica, sans-serif;\n}"],"names":[],"version":3,"file":"index.e8265c92.css.map","sourceRoot":"/__parcel_source_root/"}

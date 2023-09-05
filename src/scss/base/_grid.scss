@@ -35,13 +35,16 @@ $sizes:(
   flex-wrap: wrap;
   margin-right: calc($column-gutter / 2)+px;
   margin-left: calc($column-gutter / 2)+px;  
-  &--vertically-center{
+  &--vertically-centered{
     align-items: center;
   }
 }
 [class*=col-]{
   width:100%;
   padding:0 calc($column-gutter / 2)+px;
+}
+[class*=hidden--]{
+  display: none;
 }
 @each $col, $query in $sizes{
 
@@ -56,5 +59,11 @@ $sizes:(
         margin-left: calc( 100% / $grid-columns * $i);
       }
     }
+   
+    .hidden--#{$col}{
+      display:initial;
+    }
+    
   }
 }
+

@@ -90,6 +90,79 @@
   display: block;
 }
 
+.skill__block {
+  align-items: center;
+  margin: 1em 0;
+  display: flex;
+}
+
+.skill__percentage-bar, .skill__name {
+  flex: 1 1 0;
+}
+
+.skill__name {
+  font-weight: 900;
+}
+
+.skill__percentage-bar {
+  background-color: #d3d0dc;
+  border-radius: .5em;
+  width: 100%;
+  height: .5em;
+  position: relative;
+}
+
+.skill__percentage-bar:before {
+  content: "";
+  background-color: #e33575;
+  border-radius: .5em;
+  height: .5em;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.skill__percentage-bar--10:before {
+  width: 10%;
+}
+
+.skill__percentage-bar--20:before {
+  width: 20%;
+}
+
+.skill__percentage-bar--30:before {
+  width: 30%;
+}
+
+.skill__percentage-bar--40:before {
+  width: 40%;
+}
+
+.skill__percentage-bar--50:before {
+  width: 50%;
+}
+
+.skill__percentage-bar--60:before {
+  width: 60%;
+}
+
+.skill__percentage-bar--70:before {
+  width: 70%;
+}
+
+.skill__percentage-bar--80:before {
+  width: 80%;
+}
+
+.skill__percentage-bar--90:before {
+  width: 90%;
+}
+
+.skill__percentage-bar--100:before {
+  width: 100%;
+}
+
 body {
   color: #3e3366;
   font-family: Nunito Sans, arial, sans-serif;
@@ -113,14 +186,28 @@ h1 span {
   color: #9b96b0;
 }
 
+h3 {
+  color: #e33575;
+  margin: 1.5em 0 .5em;
+  font-size: clamp(1.7em, 2.5vw, 2.2em);
+}
+
+h4 {
+  font-size: clamp(1em, 2vw, 1.5em);
+}
+
 p {
   color: #3e3366;
-  font-size: clamp(1em, 2vw, 1.2em);
+  font-size: 1.2rem;
 }
 
 p .strong {
   color: #e33575;
   font-weight: 900;
+}
+
+.small {
+  font-size: clamp(.7em, 1vw, 1rem);
 }
 
 *, :before, :after {
@@ -136,8 +223,8 @@ p .strong {
 
 .row {
   flex-wrap: wrap;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: -10px;
+  margin-right: -10px;
   display: flex;
 }
 
@@ -148,6 +235,10 @@ p .strong {
 [class*="col-"] {
   width: 100%;
   padding: 0 10px;
+}
+
+[class*="hidden--"] {
+  display: none;
 }
 
 @media screen and (width >= 1100px) {
@@ -245,6 +336,10 @@ p .strong {
 
   .offset-lg-12 {
     margin-left: 100%;
+  }
+
+  .hidden--lg {
+    display: initial;
   }
 }
 
@@ -344,6 +439,10 @@ p .strong {
   .offset-sm-12 {
     margin-left: 100%;
   }
+
+  .hidden--sm {
+    display: initial;
+  }
 }
 
 @media screen and (width >= 480px) {
@@ -442,6 +541,10 @@ p .strong {
   .offset-xs-12 {
     margin-left: 100%;
   }
+
+  .hidden--xs {
+    display: initial;
+  }
 }
 
 a {
@@ -489,7 +592,7 @@ header {
 }
 
 #hero p {
-  margin: 0;
+  margin: .4em 0;
   font-size: clamp(1.1em, 2.4vw, 2em);
   font-weight: 900;
   line-height: 1.1em;

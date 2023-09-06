@@ -26,15 +26,15 @@ $sizes:(
 }
 .container{
   max-width: $container-width;
-  padding: ($column-gutter/2)+px;
+  padding: calc($column-gutter / 2)+px;
   width:96%;
   margin: 0 auto;
 }
 .row{
   display: flex;
   flex-wrap: wrap;
-  margin-right: calc($column-gutter / 2)+px;
-  margin-left: calc($column-gutter / 2)+px;  
+  margin-right: - calc($column-gutter / 2)+px;
+  margin-left: - calc($column-gutter / 2)+px;  
   &--vertically-center{
     align-items: center;
   }
@@ -42,6 +42,9 @@ $sizes:(
 [class*=col-]{
   width:100%;
   padding:0 calc($column-gutter / 2)+px;
+}
+[class*=hidden--]{
+  display: none;
 }
 @each $col, $query in $sizes{
 
@@ -55,6 +58,9 @@ $sizes:(
       .offset-#{$col}-#{$i}{
         margin-left: calc( 100% / $grid-columns * $i);
       }
+    }
+    .hidden--#{$col}{
+      display:initial;
     }
   }
 }

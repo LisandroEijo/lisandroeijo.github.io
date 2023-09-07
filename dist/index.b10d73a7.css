@@ -163,6 +163,43 @@
   width: 100%;
 }
 
+.history-line {
+  text-align: right;
+  height: 100%;
+  padding: .25rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 900;
+  position: relative;
+}
+
+.history-line:after {
+  content: "";
+  background-color: #d3d0dc;
+  width: 6px;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: .45rem;
+  right: 7px;
+}
+
+.history-line:before {
+  content: "";
+  z-index: 1;
+  background-color: #e33575;
+  border-radius: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
+  position: absolute;
+  top: .45rem;
+  right: 0;
+}
+
+.work-slider img {
+  min-width: 100%;
+}
+
 body {
   color: #3e3366;
   font-family: Nunito Sans, arial, sans-serif;
@@ -174,6 +211,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
   font-family: Nunito Sans, arial, sans-serif;
+  font-weight: 900;
   line-height: 1.4;
 }
 
@@ -193,7 +231,7 @@ h3 {
 }
 
 h4 {
-  font-size: clamp(1em, 2vw, 1.5em);
+  font-size: 1.3em;
 }
 
 p {
@@ -207,7 +245,8 @@ p .strong {
 }
 
 .small {
-  font-size: clamp(.7em, 1vw, 1rem);
+  margin: 0;
+  font-size: 1rem;
 }
 
 *, :before, :after {
@@ -596,6 +635,22 @@ header {
   font-size: clamp(1.1em, 2.4vw, 2em);
   font-weight: 900;
   line-height: 1.1em;
+}
+
+.education__block {
+  margin: 1rem 0;
+}
+
+.education__block .strong {
+  font-size: 1.3rem;
+}
+
+.experience__block {
+  margin-bottom: 2rem;
+}
+
+.experience__block .small {
+  margin-bottom: 1.2rem;
 }
 
 body {

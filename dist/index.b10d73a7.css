@@ -90,6 +90,14 @@
   display: block;
 }
 
+.btn-container {
+  margin: 2.5rem 0;
+}
+
+.btn-container--centered {
+  text-align: center;
+}
+
 .skill__block {
   align-items: center;
   margin: 1em 0;
@@ -198,6 +206,24 @@
 
 .work-slider img {
   min-width: 100%;
+}
+
+.tns-outer {
+  position: relative;
+}
+
+.tns-controls {
+  z-index: 0;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: -25px;
+}
+
+.tns-controls button[data-controls="next"] {
+  position: absolute;
+  top: 0;
+  right: -50px;
 }
 
 body {

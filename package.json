@@ -5,7 +5,8 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build",
+    "deploy":"parcel build --dist-dir ."
   },
   "devDependencies": {
     "@parcel/transformer-sass": "2.9.3",

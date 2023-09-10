@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="scss/vendors/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
     <link rel="stylesheet" href="scss/main.scss">
+    <script src="https://unpkg.com/scrollreveal"></script>
     <title>Lisandro Eijo -- Portfolio</title>
 
     
@@ -34,10 +35,9 @@
                     <img src="assets/img/hero-bg-img.png" alt="" class="hero__bg-img">
                 </div>
             </div>
-            <div class="hero__content">
-            </div>
         </div>
     </section>
+    <a href="#hero" id="btn__up" class="btn btn-secondary"><img src="assets/img/icon__arrw--up.svg" alt=""></a>
     <section id="about" class="section">
         <div></div>
         <div class="container">
@@ -233,7 +233,7 @@
                 </div>
             </div>
         </div>
-
+        
     </section>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
@@ -241,9 +241,13 @@
     var slider = tns({
       container: '.work-slider',
       items: 1,
+      controlsPosition: "bottom",
+      controlsText:["",""],
+      navPosition:"bottom",
+      mouseDrag: true,
       responsive: {
         640: {
-          edgePadding: 20,
+        //   edgePadding: 0,
           gutter: 20,
           items: 2
         },

@@ -5,7 +5,10 @@
 @use "sections/"as *;
 
 
-
+ 
+html{
+    scroll-behavior: smooth;
+}
 body{
     background: $bg-gradient;
 }

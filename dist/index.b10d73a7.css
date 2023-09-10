@@ -91,7 +91,7 @@
 }
 
 .btn-container {
-  margin: 2.5rem 0;
+  padding: 2.5rem 0;
 }
 
 .btn-container--centered {
@@ -204,26 +204,87 @@
   right: 0;
 }
 
+.work-slider {
+  z-index: 2;
+}
+
 .work-slider img {
   min-width: 100%;
 }
 
 .tns-outer {
+  margin: 3rem 1.5rem;
   position: relative;
 }
 
-.tns-controls {
+.tns-ovh {
+  z-index: 1;
+  position: relative;
+}
+
+.tns-controls button {
   z-index: 0;
-  width: 100%;
+  background-color: #0000;
+  border: none;
+  width: 35px;
+  height: 70px;
+  margin: 0;
+  padding: 0;
   position: absolute;
-  top: 50%;
-  left: -25px;
+  top: calc(50% - 30px);
+  left: -36px;
 }
 
 .tns-controls button[data-controls="next"] {
+  left: 101%;
+}
+
+.tns-controls button[data-controls="next"]:after, .tns-controls button[data-controls="next"]:before {
+  content: "";
+  background-color: #9b96b0;
+  border-radius: 5px;
+  width: 30px;
+  height: 3px;
+  display: inline-block;
+  transform: rotate(45deg)translate(-17px, -10px);
+}
+
+.tns-controls button[data-controls="next"]:before {
+  transform: rotate(-45deg)translate(-15px, 8px);
+}
+
+.tns-controls button[data-controls="prev"]:after, .tns-controls button[data-controls="prev"]:before {
+  content: "";
+  background-color: #9b96b0;
+  border-radius: 5px;
+  width: 30px;
+  height: 3px;
+  display: inline-block;
+  transform: rotate(45deg)translate(-2px, 2px);
+}
+
+.tns-controls button[data-controls="prev"]:before {
+  transform: rotate(-45deg)translate(1px, -5px);
+}
+
+.tns-nav {
   position: absolute;
-  top: 0;
-  right: -50px;
+  bottom: -2rem;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.tns-nav button {
+  background-color: #9b96b0;
+  border: none;
+  border-radius: 2px;
+  width: 2rem;
+  height: .2rem;
+  margin: 0 .75rem;
+}
+
+.tns-nav .tns-nav-active {
+  background-color: #e33575;
 }
 
 body {
@@ -625,10 +686,22 @@ img {
 }
 
 header {
+  z-index: 1;
   width: 90%;
   margin: 1rem 5%;
   display: flex;
   position: fixed;
+}
+
+#btn__up {
+  box-sizing: content-box;
+  opacity: .5;
+  width: 42px;
+  height: 42px;
+  padding: 12px;
+  position: fixed;
+  bottom: .5rem;
+  right: .5rem;
 }
 
 .section__title {
@@ -677,6 +750,10 @@ header {
 
 .experience__block .small {
   margin-bottom: 1.2rem;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

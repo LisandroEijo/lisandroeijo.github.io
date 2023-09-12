@@ -1,6 +1,9 @@
-.links__container{
-  display: flex;
-  justify-content: space-around;
-  margin: 1.2rem 0;
-  max-width: 340px;
+.contact-links{
+  padding-top: 1.5rem;
+  &__container{
+    display: flex;
+    justify-content: space-around;
+    margin: 1.2rem auto;
+    max-width: 340px;
+  }
 }

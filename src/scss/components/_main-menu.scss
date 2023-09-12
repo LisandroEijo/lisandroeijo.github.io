@@ -12,15 +12,16 @@
     li{
       flex: 1 1 0;
       text-align: center;
-      padding: 0.75rem 1.5rem;
-      &.active{
-        border-bottom: 3px solid $primary-color;
-      }
+      padding: 0.75rem 0;
       a{
         color:$secondary-color;
         font-weight: 900;
         font-size: 1rem;
         text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        &.active{
+          border-bottom: 3px solid $primary-color;
+        }
       }
     }
   }

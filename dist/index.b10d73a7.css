@@ -15,18 +15,19 @@
 .main-menu ul li {
   text-align: center;
   flex: 1 1 0;
-  padding: .75rem 1.5rem;
-}
-
-.main-menu ul li.active {
-  border-bottom: 3px solid #e33575;
+  padding: .75rem 0;
 }
 
 .main-menu ul li a {
   color: #3e3366;
+  padding: .75rem 1.5rem;
   font-size: 1rem;
   font-weight: 900;
   text-decoration: none;
+}
+
+.main-menu ul li a.active {
+  border-bottom: 3px solid #e33575;
 }
 
 .btn {
@@ -269,7 +270,6 @@
 
 .tns-nav {
   position: absolute;
-  bottom: -2rem;
   left: 50%;
   transform: translate(-50%);
 }
@@ -278,9 +278,9 @@
   background-color: #9b96b0;
   border: none;
   border-radius: 2px;
-  width: 2rem;
+  width: 1rem;
   height: .2rem;
-  margin: 0 .75rem;
+  margin: 0 .3rem;
 }
 
 .tns-nav .tns-nav-active {
@@ -686,7 +686,7 @@ img {
 }
 
 header {
-  z-index: 1;
+  z-index: 2;
   width: 90%;
   margin: 1rem 5%;
   display: flex;
@@ -696,6 +696,7 @@ header {
 #btn__up {
   box-sizing: content-box;
   opacity: .5;
+  z-index: 2;
   width: 42px;
   height: 42px;
   padding: 12px;
@@ -710,10 +711,14 @@ header {
   font-size: 2.6rem;
 }
 
-.links__container {
+.contact-links {
+  padding-top: 1.5rem;
+}
+
+.contact-links__container {
   justify-content: space-around;
   max-width: 340px;
-  margin: 1.2rem 0;
+  margin: 1.2rem auto;
   display: flex;
 }
 
@@ -744,12 +749,41 @@ header {
   font-size: 1.3rem;
 }
 
+.my-photo__block {
+  position: relative;
+}
+
+.sausage {
+  opacity: .5;
+  z-index: -1;
+  background-color: #e33575;
+  border-radius: 50rem;
+  width: 12rem;
+  height: 5rem;
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+}
+
 .experience__block {
   margin-bottom: 2rem;
 }
 
 .experience__block .small {
   margin-bottom: 1.2rem;
+}
+
+#contact {
+  position: relative;
+}
+
+#contact .footer-bg-img {
+  z-index: -1;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 html {

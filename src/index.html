@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="scss/vendors/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
     <link rel="stylesheet" href="scss/main.scss">
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
     <title>Lisandro Eijo -- Portfolio</title>
 
     
@@ -18,9 +18,10 @@
     <header>
         <nav class="main-menu">
             <ul>
-                <li class="active"><a href="#about">About</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a class="main-menu__item active" href="#hero">home</a></li>
+                <li><a class="main-menu__item" href="#about">About</a></li>
+                <li><a class="main-menu__item" href="#work">Work</a></li>
+                <li><a class="main-menu__item" href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -28,11 +29,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
-                    <h1><span>Hi, I am </span><br>Lisandro Eijo.</h1>
-                    <p>UX/UI Designer + Product Designer + UI dev</p>
+                    <h1 class="rellax" data-rellax-speed="2"><span>Hi, I am </span><br>Lisandro Eijo.</h1>
+                    <p class="rellax">UX/UI Designer + Product Designer + UI dev</p>
                 </div>
-                <div class="col-sm-4 hidden--sm">
-                    <img src="assets/img/hero-bg-img.png" alt="" class="hero__bg-img">
+                <div class="col-sm-4 hidden--sm rellax" data-rellax-speed="-10">
+                    <img src="assets/img/hero-bg-img.png" alt="" class="hero__bg-img" style="margin-top:-15rem">
                 </div>
             </div>
         </div>
@@ -43,8 +44,10 @@
         <div class="container">
             <h2 class="section__title">About Me</h2>
             <div class="row row--vertically-center">
-                <div class="col-sm-6">
+                <div class="col-sm-6 my-photo__block">
                     <img src="assets/img/my__photo.png" alt="">
+                    <img src="assets/img/doties-thingy.svg" alt="" class="dots rellax" data-rellax-speed="3.5">
+                    <div class="sausage rellax" data-rellax-speed="1"></div>
                 </div>
                 <div class="col-sm-6">
                     <p>I'm a digital product designer based in La Plata, with over 15 years of experience. I have worked as a <span class="strong">UX/UI designer and UI developer</span> for the last 10 years, leading teams for the past 4 years. I also have experience as an <span class="strong">illustrator, concept artist, pixel artist, and graphic designer.</span></p>
@@ -200,32 +203,30 @@
                     </div>
                 </div>
             </div>
-            <h3>Notable projects</h3>
-            
-                <div class="work-slider">
-                    <div><a href=""><img src="assets/img/slide-1.png" alt=""></a></div>
-                    <div><a href=""><img src="assets/img/slide-2.png" alt=""></a></div>
-                    <div><a href=""><img src="assets/img/slide-3.png" alt=""></a></div>
-                    <div><a href=""><img src="assets/img/slide-3.png" alt=""></a></div>
-                </div>
-                <div class="btn-container btn-container--centered">
-                    <a href="https://www.behance.net/lisandroeijo/" class="btn btn-primary btn-lg">More of my work</a>
-
-                </div>
-            
+            <h3>Notable projects</h3>            
+            <div class="work-slider">
+                <div><a href="https://www.behance.net/gallery/114174817/Nuin-App"><img src="assets/img/slide-1.png" alt=""></a></div>
+                <div><a href="https://www.behance.net/gallery/123755563/HCI-01-INTERNAL-COMMUNICATION-TOOL-DS-MVP"><img src="assets/img/slide-2.png" alt=""></a></div>
+                <div><a href="https://www.behance.net/gallery/123542731/HCI-02-INTERNAL-COMMUNICATION-TOOL-UXUI-DESIGN"><img src="assets/img/slide-3.png" alt=""></a></div>
+                <div><a href="https://www.behance.net/gallery/156711107/Sorteo-Qatar-RPC"><img src="assets/img/slide-4.png" alt=""></a></div>
+            </div>
+            <div class="btn-container btn-container--centered">
+                <a href="https://www.behance.net/lisandroeijo/" class="btn btn-primary btn-lg">More of my work</a>
+            </div>            
         </div>
     </section>
     <section id="contact" class="section">
         <div class="container">
+            <img src="assets/img/footer-bg-img.svg" alt="decoration image" class="footer-bg-img rellax" data-rellax-speed="1" data-rellax-zindex="-1">
             <h2 class="section__title">Contact</h2>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 offset-sm-3">
                     <p>Do you have any questions or would you like to discuss a project? We can start a conversation.
                         <br>My email is <a href="mailto:lisandroeijo@gmail.com">lisandroeijo@gmail.com</a>.</p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 offset-sm-3 contact-links">
                     <p>You can also find my work on:</p>
-                    <div class="links__container">
+                    <div class="contact-links__container">
                         <a href="https://www.linkedin.com/in/lisandro-eijo-45b3a534/" target="_blank"><img src="assets/img/icon--linkedin.svg" alt=""></a>
                         <a href="https://www.behance.net/lisandroeijo" target="_blank"><img src="assets/img/icon--behance.svg" alt=""></a>
                         <a href="https://dribbble.com/LichoEijo" target="_blank"><img src="assets/img/icon--dribbble.svg" alt=""></a>
@@ -247,7 +248,6 @@
       mouseDrag: true,
       responsive: {
         640: {
-        //   edgePadding: 0,
           gutter: 20,
           items: 2
         },
@@ -259,5 +259,19 @@
         }
       }
     });
+    var rellax = new Rellax('.rellax');
+    var navMenu = document.getElementsByClassName( 'main-menu');
+    var navItem = document.getElementsByClassName("main-menu__item");
+    for (let i = 0; i < navItem.length; i++) {
+        navItem[i].addEventListener('click', function(){
+            var current = document.getElementsByClassName('active');
+            if (current.length > 0) {
+                current[0].className = current[0].className.replace(' active', '');
+            }        
+        this.className += ' active'
+        });
+    }   
+
   </script>
+  
 </html> 

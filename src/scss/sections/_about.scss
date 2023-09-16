@@ -1,0 +1,22 @@
+@use "../abstracts/" as *;
+
+.education__block {
+  margin: 1rem 0;
+  .strong{
+    font-size: 1.3rem;
+  }
+}
+.my-photo__block{
+  position: relative;
+}
+.sausage {
+  background-color: #e33575;
+  width: 12rem;
+  height: 5rem;
+  border-radius: 50rem;
+  opacity: 0.5;
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  z-index: -1;
+}

@@ -1,8 +1,13 @@
 {
   "name": "lisandroeijo.github.io",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build",
+    "deploy":"parcel build --dist-dir ."
+  },
   "devDependencies": {
     "@parcel/transformer-sass": "2.9.3",
     "parcel": "^2.9.3"

@@ -1,0 +1,14 @@
+@use "abstracts/"as *;
+@use "components/"as *;
+@use "base/"as *;
+@use "layouts/"as *;
+@use "sections/"as *;
+
+
+ 
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background: $bg-gradient;
+}

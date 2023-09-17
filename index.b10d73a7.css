@@ -1,11 +1,14 @@
 .main-menu {
   background-color: #ffffffd1;
   border-radius: .75rem;
+  width: 100%;
+  max-width: 25rem;
   margin: 0 auto;
   padding: 1.5em;
 }
 
 .main-menu ul {
+  justify-content: space-around;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -20,7 +23,7 @@
 
 .main-menu ul li a {
   color: #3e3366;
-  padding: .75rem 1.5rem;
+  padding: .75rem 0;
   font-size: 1rem;
   font-weight: 900;
   text-decoration: none;

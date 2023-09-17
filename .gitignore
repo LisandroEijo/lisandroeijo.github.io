@@ -15,4 +15,5 @@ node_modules/*.*
 .parcel-cache/
 .parcel-cache/*.*
 
-./dist/
+dist/
+.DS_Store

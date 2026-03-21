@@ -1,15 +1,18 @@
 {
   "name": "lisandroeijo.github.io",
-  "version": "1.0.0",
-  "license": "MIT",
-  "source": "src/index.html",
-  "scripts": {
-    "start": "parcel",
-    "build": "parcel build",
-    "deploy":"parcel build --dist-dir ."
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
   },
-  "devDependencies": {
-    "@parcel/transformer-sass": "2.9.3",
-    "parcel": "^2.9.3"
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^6.0.8",
+    "sass": "^1.98.0"
   }
 }

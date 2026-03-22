@@ -1,22 +1,63 @@
 ---
 import Base from '../layouts/Base.astro';
+import About from '../components/About.astro';
+import Education from '../components/Education.astro';
+import Experience from '../components/Experience.astro';
+import Work from '../components/Work.astro';
+import Contact from '../components/Contact.astro';
 ---
 
 <Base title="Lisandro Eijo — Senior UX/UI Designer">
-  <section id="hero">
-    <h1>Lisandro Eijo</h1>
-    <p>Senior UX/UI Designer specializing in design systems.</p>
+  <section id="home" class="hero">
+		<div class="container">
+			<p class="hero__title">UX/UI <br>Designer</p>
+			<h1 class="hero__name">Lisandro Eijo</h1>
+
+		</div>
   </section>
 
-  <section id="work">
-    <h2>Work</h2>
-  </section>
-
+	
   <section id="about">
-    <h2>About</h2>
+		<About />
+		<Education />
   </section>
+	
+	<section id="work">
+		<Experience />
+		<Work />
+
+	</section>
 
   <section id="contact">
-    <h2>Contact</h2>
+    <Contact />		
   </section>
 </Base>
+
+<style lang="scss">
+  @use '../styles/tokens' as *;
+
+  
+	.hero{
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		padding-top: $space-16;
+    &__title {
+      font-size: $font-size-hero;
+      font-weight: $font-weight-light;
+      color: $color-primary;
+      line-height: 0.8;
+    	margin-left: -0.6rem;
+    	margin-bottom: 2.5rem;
+    }
+
+    &__name {
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: $font-weight-light;
+      color: $color-accent;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: $space-2;
+    }
+  }
+</style>

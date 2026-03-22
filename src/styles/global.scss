@@ -1,0 +1,13 @@
+@use 'tokens' as *;
+@use 'reset';
+@use 'typography';
+@use 'buttons';
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;900&display=swap');
+
+.container {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $space-6;
+}

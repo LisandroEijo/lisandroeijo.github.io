@@ -1,0 +1,201 @@
+---
+const projects = [
+  {
+    image: '/images/proyect-gallery_smart-savings.png',
+    title: 'Smart Savings',
+    link:  'https://www.behance.net/gallery/245960381/Smart-Savings-Bank-app-feature',
+  },
+  {
+    image: '/images/proyect-gallery_floraknow.png',
+    title: 'FloraKnow',
+    link:  'https://www.behance.net/gallery/196002239/FloraKnow-Plant-Care-App',
+  },
+  {
+    image: '/images/proyect-gallery_Ripio-rpc.png',
+    title: 'Ripio RPC',
+    link:  'https://www.behance.net/gallery/156711107/Sorteo-Qatar-RPC',
+  },
+  {
+    image: '/images/proyect-gallery_HCI.png',
+    title: 'HCI',
+    link:  'https://www.behance.net/gallery/123602481/HCI-03-INTERNAL-COMMUNICATION-TOOL-UXUI-DESIGN',
+  },
+  {
+    image: '/images/proyect-gallery_Nuin.png',
+    title: 'Nuin',
+    link:  'https://www.behance.net/gallery/114174817/Nuin-App',
+  },
+];
+---
+
+<section id="work" class="work">
+  <div class="container">
+    <h2 class="work__title">Featured Work</h2>
+    <div class="work__carousel">
+      <button class="work__arrow work__arrow--prev" aria-label="Previous"></button>
+      <div class="work__track-wrapper">
+        <div class="work__track">
+          {projects.map((project) => (
+            <div class="work__card">
+              <a href={project.link}>
+                <img src={project.image} alt={project.title} />
+              </a>
+              <p class="work__card-title">{project.title}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <button class="work__arrow work__arrow--next" aria-label="Next"></button>
+    </div>
+    <div class="work__dots">
+      {Array.from({ length: projects.length - 2 }).map((_, i) => (
+        <button class={`work__dot ${i === 0 ? 'work__dot--active' : ''}`} aria-label={`Go to slide ${i + 1}`} />
+      ))}
+    </div>
+    <div class="btn__container">
+      <a href="https://www.behance.net/LisandroEijo" class="btn btn--outline">More of my work</a>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/tokens' as *;
+
+  .work {
+    padding: $space-24 0;
+    text-align: center;
+
+    &__title {
+      font-size: $font-size-h2;
+      margin-bottom: $space-12;
+      text-align: left;
+    }
+
+    &__carousel {
+      display: flex;
+      align-items: center;
+      gap: $space-4;
+    }
+
+    &__track-wrapper {
+      overflow: hidden;
+      flex: 1;
+    }
+
+    &__track {
+      display: flex;
+      gap: $space-4;
+      transition: transform 0.3s ease;
+    }
+
+    &__card {
+      flex: 0 0 calc(33.333% - $space-4);
+      border-radius: $radius-md;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        //height: 200px;
+        object-fit: cover;
+      }
+    }
+
+    &__card-title {
+      font-size: $font-size-small;
+      font-weight: $font-weight-bold;
+      padding: $space-2 0;
+      text-align: left;
+    }
+
+    &__arrow {
+      font-size: 1.5rem;
+      color: $color-primary;
+      padding: $space-2;
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      &::after, &::before{
+        content: "";
+        display: block;
+        width: $space-8;
+        height: $space-1;
+        background-color: $neutral-200;
+        transform: rotate(-45deg) translate(-6px, 4px);
+      }
+      &::before{
+        transform: rotate(45deg) translate(-8px,-5px);
+      }
+      &:hover {
+        color: $color-accent;
+      }
+      &--prev{
+        &::after{
+          transform: rotate(45deg) translate(5px, 6px);
+        }
+        &::before{
+          transform: rotate(-45deg) translate(6px, -8px);
+        }
+      }
+    }
+
+    &__dots {
+      display: flex;
+      justify-content: center;
+      gap: $space-2;
+      margin-top: $space-6;
+    }
+
+    &__dot {
+      width: 24px;
+      height: $space-1;
+      background-color: $neutral-200;
+      transition: background-color 0.2s ease;
+
+      &--active {
+        background-color: $color-accent;
+      }
+    }
+
+    &__cta {
+      display: inline-block;
+      margin-top: $space-8;
+      padding: $space-3 $space-8;
+      background-color: $color-accent;
+      color: white;
+      border-radius: $radius-full;
+      font-weight: $font-weight-bold;
+      font-size: $font-size-small;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+  }
+</style>
+
+<script>
+  const track = document.querySelector('.work__track') as HTMLElement;
+  const dots = document.querySelectorAll('.work__dot');
+  const prevBtn = document.querySelector('.work__arrow--prev');
+  const nextBtn = document.querySelector('.work__arrow--next');
+
+  const cards = document.querySelectorAll('.work__card');
+  const total = cards.length;
+  const visible = 3;
+  const maxIndex = total - visible;
+  let current = 0;
+
+  function goTo(index: number) {
+    current = Math.max(0, Math.min(index, maxIndex));
+    const cardWidth = (track.parentElement as HTMLElement).offsetWidth / visible;
+    track.style.transform = `translateX(-${current * cardWidth}px)`;
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('work__dot--active', i === current);
+    });
+  }
+
+  prevBtn?.addEventListener('click', () => goTo(current - 1));
+  nextBtn?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+</script>

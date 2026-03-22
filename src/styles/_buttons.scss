@@ -1,0 +1,32 @@
+@use 'tokens' as *;
+
+.btn {
+  display: inline-block;
+  padding: $space-3 $space-8;
+  border-radius: $radius-lg;
+  font-family: $font-family;
+  font-size: $font-size-body-big;
+  font-weight: $font-weight-regular;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  border: none;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &--primary {
+    background-color: $color-accent;
+    color: white;
+  }
+
+  &--outline {
+    background-color: transparent;
+    border: 2px solid $color-accent;
+    color: $color-accent;
+  }
+  &__container{
+    display: inline-block;
+    margin: $space-6 auto;
+  }
+}

@@ -1,0 +1,131 @@
+---
+const experiences = [
+  {
+    year: '2026',
+    company: 'RelyanceAI',
+    role: 'UX/UI Designer Specialist',
+    description: 'As a UX Specialist, I focus on maintaining and evolving the Design System while designing user experiences for new features and usability improvements. I help define and scale components to ensure consistency across products, and work closely with product managers and developers to create mockups and prototypes that support new functionality and improve the overall experience.',
+  },
+  {
+    year: '2023',
+    company: 'Producers Trust',
+    role: 'Product Design Specialist',
+    description: 'I led the end-to-end design process from research to implementation, delivering user-centered solutions that improved usability and product consistency. I built and maintained valuable UI libraries that reduced design and development time, and worked closely with developers to ensure smooth handoffs and high-quality implementation.',
+  },
+  {
+    year: '2021',
+    company: 'Ripio',
+    role: 'UX/UI Designer Lead',
+    description: 'As UX Design Lead for the wallet team, I aligned work around a clear strategy and ensured strong UX practices across projects. I partnered with Product Owners to prioritize and coordinate delivery, while mentoring designers in their day-to-day work and supporting their professional growth.',
+  },
+  {
+    year: '2011',
+    company: 'Devsar',
+    role: 'UX/UI Designer Lead',
+    description: 'Joined Devsar as an individual contributor and grew into a design lead over a decade, building and scaling the UX/UI team along the way. Led design across a wide range of digital products — web apps, mobile, SaaS platforms, and internal B2B tools — working closely with stakeholders across multiple simultaneous initiatives.',
+  },
+];
+---
+
+<section id="experience" class="experience">
+  <div class="container">
+    <h2 class="experience__title">Recent experience</h2>
+    <div class="experience__timeline">
+      {experiences.map((exp) => (
+        <div class="experience__item">
+          <div class="experience__year">
+            <span>{exp.year}</span>
+            <div class="experience__dot" />
+          </div>
+          <div class="experience__content">
+            <h3 class="experience__company">{exp.company}</h3>
+            <p class="experience__role">{exp.role}</p>
+            <p class="experience__desc">{exp.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/tokens' as *;
+
+  .experience {
+    padding: $space-24 0;
+
+    &__title {
+      font-size: $font-size-h2;
+      margin-bottom: $space-12;
+    }
+
+    &__timeline {
+      display: flex;
+      flex-direction: column;
+      // gap: $space-8;
+    }
+
+    &__item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: $space-8;
+      align-items: start;
+    }
+
+    &__year {
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+      padding-top: $space-1;
+
+      span {
+        font-size: $font-size-small;
+        font-weight: $font-weight-bold;
+        color: $color-text-light;
+      }
+    }
+    &__content{
+      margin:  auto;
+      position: relative;
+      padding-bottom: $space-8;
+      &::before{
+       content: "";
+       display: block;
+       position: absolute;
+       left: -63px;
+       width: 2px;
+       height: 100%;
+       background-color: $neutral-100;
+       z-index: -1;
+     }
+    }
+
+    &__dot {
+      width: 10px;
+      height: 10px;
+      border-radius: $radius-full;
+      background-color: $color-accent;
+      flex-shrink: 0;
+    }
+
+    &__company {
+      font-size: $font-size-body;
+      font-weight: $font-weight-black;
+      color: $color-primary;
+    }
+
+    &__role {
+      font-size: $font-size-small;
+      font-weight: $font-weight-bold;
+      color: $color-accent;
+      margin-top: $space-1;
+    }
+
+    &__desc {
+      font-size: $font-size-small;
+      color: $color-text;
+      margin-top: $space-2;
+      line-height: 1.6;
+    }
+  }
+</style>

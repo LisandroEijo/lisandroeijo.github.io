@@ -1,0 +1,79 @@
+---
+const { pathname } = Astro.url;
+---
+
+<nav class="nav">
+  <ul class="nav__links">
+    <!-- <li><a href="/#home"><img src="/images/logo.svg" alt="Lisandro Eijo" class="nav__logo" /></a></li> -->
+    <li><a href="/#home"  data-section="home">Home</a></li>
+    <li><a href="/#about"  data-section="about">About</a></li>
+    <li><a href="/#work"  data-section="work">Work</a></li>
+    <li><a href="/#contact"  data-section="contact">Contact</a></li>
+  </ul>
+</nav>
+
+<style lang="scss">
+  @use '../styles/tokens' as *;
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: $space-4 0;
+    
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+
+    &__links {
+      display: flex;
+      align-items: center;
+      border-radius: $radius-md;
+      a {
+        font-size: $font-size-small;
+        font-weight: $font-weight-bold;
+        color: $color-primary;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: color 0.2s ease;
+        padding: 1.5rem 2rem;
+        border-bottom: 4px solid transparent;
+        background-color: rgba(255, 255, 255, 0.9);
+        &.active{
+          border-bottom-color: $color-accent;
+        }
+
+        &:hover {
+          color: $color-accent;
+        }
+      }
+    }
+
+    &__logo {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('[data-section]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navLinks.forEach((link) => {
+          link.classList.remove('active');
+          if (link.getAttribute('data-section') === entry.target.id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach((section) => observer.observe(section));
+</script>

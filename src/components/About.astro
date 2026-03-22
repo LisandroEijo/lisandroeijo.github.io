@@ -1,0 +1,53 @@
+---
+---
+
+<section id="about" class="about">
+  <div class="container">
+    <h2 class="about__title">About Me</h2>
+    <div class="about__content">
+      <p class="about__text">
+        I'm a <strong class="text-accent">Senior UX/UI Designer</strong> with 14+ years of experience across the full product lifecycle: from early discovery and research to high-fidelity UI, design systems, and developer handoff. I've led teams, mentored designers, and <strong class="text-accent">shipped products in fintech, crypto, SaaS, and data security.</strong> I'm most effective in environments where design needs to be both strategic and hands-on.
+      </p>
+      <img class="about__photo" src="images/About__profile-photo.png" alt="Lisandro Eijo" />
+    </div>
+    <a href="/cv.pdf" class="btn btn--primary" target="_blank" rel="noopener">Download my CV</a>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/tokens' as *;
+
+  .about {
+    padding: $space-24 0;
+    text-align: center;
+
+    &__title {
+      font-size: $font-size-h2;
+      margin-bottom: $space-8;
+    }
+
+    &__content {
+      display: flex;
+      align-items: center;
+      gap: $space-8;
+      max-width: 700px;
+      margin: 0 auto $space-12;;
+    }
+
+    &__text {
+      flex: 1;
+      font-size: $font-size-body-big;
+      text-align: right;
+    }
+
+    &__photo {
+      max-width: 360px;
+      max-height: 360px;
+      object-fit: cover;
+      border-radius: $radius-lg;
+      flex-shrink: 0;
+    }
+
+
+  }
+</style>

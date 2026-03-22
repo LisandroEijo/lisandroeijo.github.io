@@ -1,0 +1,21 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <p>Designed & built by Lisandro Eijo · © {year}</p>
+</footer>
+
+<style lang="scss">
+  @use '../styles/tokens' as *;
+
+  .footer {
+    padding: $space-8 0;
+    text-align: center;
+
+    p {
+      font-size: $font-size-small;
+      color: $neutral-400;
+    }
+  }
+</style>

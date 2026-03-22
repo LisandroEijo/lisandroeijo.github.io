@@ -1,0 +1,109 @@
+---
+---
+
+<section id="education" class="education">
+  <div class="container">
+    <h2 class="education__title">Education</h2>
+    <p class="education__intro-text">The combination of visual design training and a teaching background has shaped how I communicate and document design decisions, something that's proven especially valuable when building design systems and aligning teams around shared standards.</p>
+    <div class="education__grid">
+
+      <div class="education__col">
+        <h3>Formal Education</h3>
+        <p class="education__date">2003 – 2009</p>
+        <p class="education__item">Teaching Degree in Arts<br> <span class="education__place">at the Faculty of Arts of UNLP<br />(National University of La Plata)</span></p>
+
+        <p class="education__date">1999 – 2003</p>
+        <p class="education__item">Visual Communication Design<br> <span class="education__place">at the Faculty of Arts of UNLP<br />(National University of La Plata)</span></p>
+      </div>
+
+      <div class="education__col">
+        <h3>Courses</h3>
+        <p class="education__date">May 2022</p>
+        <p class="education__item">Web Accessibility Course <br> <span class="education__place">at Udemy</span></p>
+
+        <p class="education__date">Mar 2021</p>
+        <p class="education__item">Product Discovery Course<br> <span class="education__place">at Product Hub</span></p>
+
+        <p class="education__date">Feb 2017</p>
+        <p class="education__item">Product Design Course<br> <span class="education__place">With Sol Metz</span></p>
+      </div>
+      <div class="education__col">
+        <h3>UX/UI Skills</h3>
+        <p class="education__item">Tools</p>
+        <p class="education__skills">Figma, FigJam, Adobe Illustrator, Confluence, Notion, Jira, Zeplin, Storybook</p>
+        <p class="education__item">Design Systems</p>
+        <p class="education__skills">Component libraries, Design tokens, Documentation, Contribution & versioning workflows</p>
+        <p class="education__item">UX Practice</p>
+        <p class="education__skills">User research, Usability testing, Prototyping, Wireframing, Design-engineering handoff</p>
+      </div>
+
+      <div class="education__col">
+        <h3>Languages</h3>
+        <a href="#" class="education__item">Spanish</a>
+        <p class="education__place">Native</p>
+        <a href="#" class="education__item">English</a>
+        <p class="education__place">Upper intermediate</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/tokens' as *;
+
+  .education {
+    padding: $space-24 0;
+
+    &__title {
+      font-size: $font-size-h2;
+      margin-bottom: $space-6;
+    }
+    &__intro-text{
+      margin-bottom: $space-8;
+
+    }
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: $space-8;
+    }
+
+    &__col {
+      display: flex;
+      flex-direction: column;
+      gap: $space-2;
+
+      h3 {
+        font-size: $font-size-body;
+        font-weight: $font-weight-black;
+        margin-bottom: $space-4;
+      }
+    }
+    p{line-height: 1.2rem;}
+    &__date {
+      font-size: $font-size-small;
+      color: $color-text-light;
+      margin-top: $space-3;
+    }
+
+    &__item {
+      color: $color-accent;
+      font-weight: $font-weight-bold;
+      font-size: $font-size-medium;
+    }
+
+    &__place, &__skills {
+      font-size: $font-size-small;
+      font-weight: $font-weight-regular;
+      color: $color-text;
+    }
+
+    &__label {
+      font-size: $font-size-small;
+      font-weight: $font-weight-bold;
+      color: $color-primary;
+      margin-top: $space-4;
+    }
+  }
+</style>

@@ -128,4 +128,22 @@ const experiences = [
       line-height: 1.6;
     }
   }
+  @media (max-width: #{$bp-sm}) {
+    .experience {
+      &__item {
+        grid-template-columns: 60px 1fr;
+        gap: $space-4;
+      }
+
+      &__year span {
+        font-size: 0.75rem;
+      }
+
+      &__content {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
 </style>

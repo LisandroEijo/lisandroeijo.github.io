@@ -1,15 +1,20 @@
 ---
-const { pathname } = Astro.url;
 ---
 
 <nav class="nav">
-  <ul class="nav__links">
-    <!-- <li><a href="/#home"><img src="/images/logo.svg" alt="Lisandro Eijo" class="nav__logo" /></a></li> -->
-    <li><a href="/#home"  data-section="home">Home</a></li>
-    <li><a href="/#about"  data-section="about">About</a></li>
-    <li><a href="/#work"  data-section="work">Work</a></li>
-    <li><a href="/#contact"  data-section="contact">Contact</a></li>
-  </ul>
+  <div class="nav__inner">
+    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav__links">
+      <li><a href="/#home" data-section="home">Home</a></li>
+      <li><a href="/#about" data-section="about">About</a></li>
+      <li><a href="/#work" data-section="work">Work</a></li>
+      <li><a href="/#contact" data-section="contact">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
 <style lang="scss">
@@ -21,15 +26,45 @@ const { pathname } = Astro.url;
     left: 0;
     right: 0;
     padding: $space-4 0;
-    
     z-index: 100;
     display: flex;
     justify-content: center;
+
+    &__inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    &__burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: $space-3 $space-4;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: $radius-md;
+
+      span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: $color-primary;
+        border-radius: 2px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      &.is-open {
+        span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        span:nth-child(2) { opacity: 0; }
+        span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      }
+    }
 
     &__links {
       display: flex;
       align-items: center;
       border-radius: $radius-md;
+
       a {
         font-size: $font-size-small;
         font-weight: $font-weight-bold;
@@ -40,7 +75,8 @@ const { pathname } = Astro.url;
         padding: 1.5rem 2rem;
         border-bottom: 4px solid transparent;
         background-color: rgba(255, 255, 255, 0.9);
-        &.active{
+
+        &.active {
           border-bottom-color: $color-accent;
         }
 
@@ -49,16 +85,65 @@ const { pathname } = Astro.url;
         }
       }
     }
+  }
 
-    &__logo {
-      height: 28px;
-      width: auto;
-      display: block;
+  @media (max-width: #{$bp-md}) {
+    .nav {
+      justify-content: flex-end;
+      padding-right: $space-6;
+
+      &__burger {
+        display: flex;
+      }
+
+      &__links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: calc(100% + $space-2);
+        right: 0;
+        border-radius: $radius-md;
+        overflow: hidden;
+        
+        &.is-open {
+          display: flex;
+        }
+        
+        a {
+          display: inline-block;
+          width: 160px;
+          text-align: center;
+          border-bottom: none;
+          // border-left: 4px solid transparent;
+          // background-color: transparent;
+          
+          &.active {
+            border-left-color: $color-accent;
+            border-bottom-color: transparent;
+          }
+        }
+      }
     }
   }
 </style>
 
 <script>
+  const burger = document.querySelector('.nav__burger');
+  const links = document.querySelector('.nav__links');
+
+  burger?.addEventListener('click', () => {
+    burger.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', burger.classList.contains('is-open').toString());
+    links?.classList.toggle('is-open');
+  });
+
+  document.querySelectorAll('.nav__links a').forEach(link => {
+    link.addEventListener('click', () => {
+      burger?.classList.remove('is-open');
+      links?.classList.remove('is-open');
+    });
+  });
+
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('[data-section]');
 

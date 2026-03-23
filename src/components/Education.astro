@@ -61,12 +61,16 @@
     }
     &__intro-text{
       margin-bottom: $space-8;
+      line-height: 1.6rem;
 
     }
     &__grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: $space-8;
+      p{
+        line-height: 1.2rem;
+      }
     }
 
     &__col {
@@ -80,7 +84,6 @@
         margin-bottom: $space-4;
       }
     }
-    p{line-height: 1.2rem;}
     &__date {
       font-size: $font-size-small;
       color: $color-text-light;
@@ -104,6 +107,22 @@
       font-weight: $font-weight-bold;
       color: $color-primary;
       margin-top: $space-4;
+    }
+  }
+
+  @media (max-width: #{$bp-md}) {
+    .education {
+      &__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  @media (max-width: #{$bp-sm}) {
+    .education {
+      &__grid {
+        grid-template-columns: 1fr;
+      }
     }
   }
 </style>

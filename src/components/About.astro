@@ -10,7 +10,7 @@
       </p>
       <img class="about__photo" src="images/About__profile-photo.png" alt="Lisandro Eijo" />
     </div>
-    <a href="/cv.pdf" class="btn btn--primary" target="_blank" rel="noopener">Download my CV</a>
+    <a href="docs/CV-Lisandro Eijo-2026_C.pdf" class="btn btn--primary" target="_blank" rel="noopener">Download my CV</a>
   </div>
 </section>
 
@@ -48,6 +48,19 @@
       flex-shrink: 0;
     }
 
-
   }
+  @media (max-width: #{$bp-md}) {
+  .about {
+    &__content {
+      flex-direction: column-reverse;
+    }
+    &__text{
+      text-align: center;
+    }
+
+    &__photo {
+      margin: 0 auto;
+    }
+  }
+}
 </style>

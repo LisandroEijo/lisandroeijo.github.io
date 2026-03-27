@@ -1,0 +1,17 @@
+@use 'tokens' as *;
+@use 'typography';
+
+
+
+.badge{
+  font-size: $font-size-xsmall;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color:$color-accent;
+  padding: $space-1 $space-3;
+  border: 1px solid $color-accent;
+  border-radius: $space-8;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}

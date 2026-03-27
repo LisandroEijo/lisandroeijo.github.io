@@ -1,9 +1,4 @@
-// Colors
-// $color-primary: #3E3366;
-// $color-accent: #E33575;
-// $color-bg: #ffffff;
-// $color-text: #3E3366;
-// $color-text-light: #5D61D3;
+
 
 // neutrals
 
@@ -25,7 +20,9 @@ $color-bg: #ffffff;
 $color-text: $neutral-800;
 $color-text-light: $neutral-500;
 
+//status colors
 
+$color-status--danger: red;
 
 // Typography
 $font-family: 'Nunito Sans', sans-serif;
@@ -34,11 +31,21 @@ $font-weight-bold: 700;
 $font-weight-regular: 400;
 $font-weight-light: 300;
 
+// titles
 $font-size-hero: clamp(5rem, 10vw, 10rem);
 $font-size-h1: clamp(2rem, 5vw, 4rem);
 $font-size-h2: 1.5rem;
-$font-size-body: 1.2rem;
+$font-size-title-large: 2rem;
+
+// body
+$font-size-body-xsmall: 0.65rem;
+$font-size-body-small: 0.9rem;
+$font-size-body: 1.1rem;
 $font-size-body-big: 1.3rem;
+$font-size-body-xlarge: 1.5rem;
+
+// others
+$font-size-xsmall: 0.65rem;
 $font-size-small: 0.875rem;
 $font-size-medium: 1rem;
 
@@ -49,6 +56,7 @@ $space-3: 0.75rem;   // 12px
 $space-4: 1rem;      // 16px
 $space-6: 1.5rem;    // 24px
 $space-8: 2rem;      // 32px
+$space-10: 2.5rem;
 $space-12: 3rem;     // 48px
 $space-16: 4rem;     // 64px
 $space-24: 6rem;     // 96px

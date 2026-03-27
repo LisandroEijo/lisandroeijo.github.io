@@ -1,0 +1,39 @@
+@use 'tokens' as *;
+
+
+
+input,
+textarea {
+  width: 100%;
+  padding: $space-3 $space-4;
+  border: 1px solid $neutral-200;
+  border-radius: $radius-md;
+  font-family: $font-family;
+  font-size: $font-size-body;
+  color: $color-text;
+  // background: $neutral-50;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: $color-primary;
+    background-color: $neutral-50;
+  }
+  &.is-error{
+    border-color: $color-status--danger;
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.error-msg{
+  color: $color-status--danger;
+}

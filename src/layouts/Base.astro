@@ -5,6 +5,9 @@ import '../styles/global.scss';
 
 const { title = 'Lisandro Eijo — Senior UX/UI Designer' } = Astro.props;
 
+// BaseLayout.astro
+const { showNav = true } = Astro.props;
+
 ---
 
 <!DOCTYPE html>
@@ -17,7 +20,7 @@ const { title = 'Lisandro Eijo — Senior UX/UI Designer' } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <Nav />
+    { showNav && <Nav /> }
     <main>
       <slot />
     </main>

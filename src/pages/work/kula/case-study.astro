@@ -1,0 +1,477 @@
+---
+import type { $brand } from 'astro:schema';
+import BaseLayout from '../../../layouts/Base.astro';
+
+const images = [
+  { img : "/images/usecase-kula/kula-img--1.png"},
+  { img : "/images/usecase-kula/kula-img--2.png"},
+  { img : "/images/usecase-kula/kula-img--3.png"},
+  { img : "/images/usecase-kula/kula-img--4.png"},
+];
+
+---
+
+<BaseLayout title="Kula Design System — Lisandro Eijo" showNav={false}>
+  <div class="cs__page">
+
+    <nav class="topbar">
+      <a href="/#work">
+        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;">
+          <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Work
+      </a>
+      
+      <button id="lockBtn" class="badge">
+        <svg viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:10px;height:12px;">
+          <rect x="0.5" y="5" width="9" height="6.5" rx="1.5" stroke="currentColor" stroke-width="0.8"/>
+          <path d="M2 5V3.5a3 3 0 0 1 6 0V5" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
+        </svg>
+        NDA protected
+      </button>
+      
+    </nav>
+
+    <header class="cs__header">
+      <p class="cs__meta">Relyance AI · 2024–2025</p>
+      <h1 class="cs__title">Kula Design System</h1>
+      <p class="cs__tagline">
+        Building a scalable design system from scratch for a B2B data-privacy SaaS platform.
+      </p>
+      <div class="cs__tags">
+        <span class="badge">Design Systems</span>
+        <span class="badge">Component Library</span>
+        <span class="badge">Figma</span>
+        <span class="badge">Design Tokens</span>
+        <span class="badge">Documentation</span>
+        <span class="badge">Typography</span>
+        <span class="badge">Data visualization</span>
+        <span class="badge">Contribution guidelines</span>
+      </div>
+    </header>
+
+    <hr />
+
+    <section class="section">
+        <div class="cards__container">
+          <div class="card">
+            <p class="card__title">Role</p>
+            <p class="card__body">DS Lead</p> 
+          </div>
+          <div class="card">
+            <p class="card__title">Project duration</p>
+            <p class="card__body">8 months</p> 
+          </div>
+          <div class="card">
+            <p class="card__title">Components</p>
+            <p class="card__body">~50</p> 
+          </div>
+          <div class="card">
+            <p class="card__title">Stack</p>
+            <p class="card__body">Figma + React.js</p> 
+          </div>
+        </div>
+      <p class="label--xs section__label">Overview</p>
+      <h3 class="section__title">A system to scale the product.</h3>
+      <p class="section__body">
+        <!-- TODO: Add case study overview -->
+         Kula is the design system I built for Relyance AI, an enterprise data privacy and compliance platform. The goal was to create a systematic foundation that would allow the product team to scale with visual consistency, faster design velocity, and real collaboration between design and engineering.</p>
+      <p class="section__body">
+        I started the project alone, establishing the architecture and foundations. Over time, other designers joined and contributed to the documentation while I continued expanding the components.
+      </p>
+    </section>
+
+    <section class="section">
+      <p class="label--xs section__label">Problem</p>
+      <h3 class="section__title">A product without a system.</h3>
+      <p class="section__body">
+         When I joined Relyance AI, the product had screen designs with UI elements but no systematized components. There was no design system file. Each screen was treated in isolation, with visual elements that were inconsistent with one another. <br>
+         Engineering was already using a component library based on Google's Material 3, completely disconnected from the visual design. The gap between what was designed and what was implemented was evident.
+      </p>
+    </section>
+
+    <section class="section">
+      <p class="section__label">Process</p>
+      <h3 class="section__title">Foundations first</h3> 
+      <p class="section__tagline">
+        The process followed a clear logic: first everything components need to exist, then the components themselves, and finally the product-specific elements.
+      </p>
+      <div class="timeline">
+        <div class="timeline__block">
+          <h4 class="timeline__title">Phase 0 — Audit & Discovery</h4>
+          <p class="timeline__content">
+          Review of the existing platform to establish a baseline before any design work began. The audit covered both the live product and available design files, evaluating visual consistency, component fragmentation, and accessibility compliance against WCAG 2.1 AA standards. Key findings included contrast ratio failures, inconsistent use of color and typography across surfaces, and the absence of a token layer or shared component structure. Usability heuristics were applied to identify recurring friction points in core flows. The audit output served as the foundation for prioritizing the token architecture and component roadmap in subsequent phases.</p>  
+        </div>
+        <div class="timeline__block">
+          <h4 class="timeline__title">Phase 1 — Foundations</h4>
+          <p class="timeline__content">
+            Definition of color, typography, and spacing tokens. Construction of the Figma variable system. The complete neutral palette, state colors, and a spacing scale based on a 4px grid were established.</p>  
+        </div>
+        <div class="timeline__block">
+          <h4 class="timeline__title">Phase 2 — Base Components</h4>
+          <p class="timeline__content">
+            Buttons, inputs, checkboxes, selects, switches, badges, modals, tooltips, drawers. Each component designed to visually align with the Material 3 components already in use in production but with his own voice.</p>  
+        </div>
+        <div class="timeline__block">
+          <h4 class="timeline__title">Phase 3 — Business Components</h4>
+          <p class="timeline__content">Compliance tables, privacy dashboards, metric cards, data states. Elements that don't exist in any generic library because they respond to specific product needs.</p>  
+        </div>
+        <div class="timeline__block">
+          <h4 class="timeline__title">File System Restructure</h4>
+          <p class="timeline__content">
+            The main Figma file had become difficult to navigate. Icons and data visualization elements were separated into their own files, kept linked to the core through Figma libraries.</p>  
+        </div>
+        <div class="timeline__block">
+          <h4 class="timeline__title">Collaborative Maintenance</h4>
+          <p class="timeline__content"> 
+            Other designers joined to document while I continued creating new components. The system kept growing for at least 6 months after the initial build phase.</p>  
+        </div>
+      </div>
+    </section>
+     <section class="section challenges">
+      <p class="section__label">Challenges</p>
+      <h3 class="section__title">Constraints That Shaped the System</h3>
+      <p class="body-text">
+        Every design system runs into some version of the same problems: adoption, documentation, and scale. Kula was no exception, and each challenge had its own resolution arc.
+      </p>
+      <div class="challenges__section">
+        <div class="challenges__block list">
+          <div class="list__number">.01</div>
+          <div class="list__content">
+            <h4 class="challenges__title">Adoption</h4>
+            <p class="challenges__body">
+              Engineering adoption was willing but costly. There was no dedicated resource on the engineering side to implement the design system — every developer was absorbing it while still shipping features. Existing technical debt created constant friction. The system gained traction, but slowly, and always in competition with delivery pressure.
+            </p>
+          </div>
+        </div>
+        <div class="challenges__block list">
+          <div class="list__number">.02</div>
+          <div class="list__content">
+            <h4 class="challenges__title"> Documentation</h4>
+            <p class="challenges__body">
+             Storybook was explored as a bridge between design and code, but was ruled out due to technical constraints on the engineering side. Confluence was set up as an alternative, but never made it into the developers' actual workflow. Documentation ended up living primarily inside Figma — a pragmatic decision given the constraints, but one that limited its reach on the engineering side. 
+            </p>
+          </div>
+        </div>
+        <div class="challenges__block list">
+          <div class="list__number">.03</div>
+          <div class="list__content">
+            <h4 class="challenges__title">Scale</h4>
+            <p class="challenges__body">
+              As the system grew, the main Figma file accumulated enough pages to become slow and hard to navigate. The decision was to split icons and data visualization into separate files, linked back to the core through Figma libraries. The impact on working speed was immediate.
+            </p>
+          </div>
+        </div>
+      </div>   
+    </section>
+    <section class="section">
+      <p class="section__label">Screens</p>
+      <h3 class="section__title">A look inside the system</h3>
+      <p class="section__tagline">
+        A selection of components, documentation and patterns from the Kula design system.
+      </p> 
+      <div class="img__grid">
+        {images.map((src) => (
+         <div class="img__container">
+           <img src={src.img} /> 
+         </div>
+         ))}
+         
+       
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="section__label">Outcome</p>
+      <h3 class="section__title">What I've learned</h3> 
+      <p class="section__tagline">
+       Kula is one of the most complex design systems I've built. It's also the first in which I faced a problem hard to ignore: the distance between what gets documented and what actually gets adopted.
+      </p>
+      <h4 class="section__title"> A design system without an adoption strategy is only half a product</h4>
+      <p class="section__body"> 
+        Even when the Figma documentation was thorough, the engineering team struggled to balance their day-to-day tasks with implementing the new design. The solution was to create a workflow that minimized friction and built shared commitment on both sides, with a clear focus on adopting the new design system. <br>  
+
+        This required several sessions of intense discussion, identifying the right moments and features to bring in the new designs. A shared channel between design and engineering was created to keep the conversation in one place, and the design team committed to supporting developers throughout implementation and making the process as smooth as possible.
+      </p>
+      <h4 class="section__title"> Coexistence is a design decision, not a limitation.</h4>
+      <p class="section__body">
+        The constraint of not being able to redesign the entire platform pushed us to design components that could coexist with the existing ones. That ended up being a strength: Kula was never a world apart — it was a coherent extension of what was already built.
+      </p>
+      <h4 class="section__title"> File architecture should be planned before it becomes a problem</h4>
+      <p class="section__body">
+        The decision to split the system into three linked files improved the team's working speed as noticeably as any component I built. Structure is part of the system.
+      </p>
+      <h4 class="section__title">A system is never finished</h4>
+      <p class="section__body">
+        Kula taught me that a design system is less a deliverable and more a living agreement between teams. The components, the documentation, the file structure — none of it matters if the people around it don't trust it or use it. The real work was building that trust.
+      </p>
+    <hr />
+
+    <section class="section">
+      <div class="cta-row">
+        <!-- TODO: Replace href values -->
+        <a class="btn btn--outline" href="/#work">Back to work</a>
+        <p class="section-label">
+          by <a href="https://www.linkedin.com/in/lisandro-eijo/" class="">Lisandro Eijo</a>
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+</BaseLayout>
+<style lang="scss">
+    @use "../../../styles/tokens" as *;
+    @use "../../../styles/typography"as *;
+   
+
+    //  page Layout
+    .cs{
+      &__page {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 4rem 2rem 8rem;
+        animation: fadeUp 0.4s ease forwards;
+      }
+      &__meta{
+        @extend .label--xs;
+        color: $neutral-400;
+        margin-bottom: $space-2 ;
+      }
+      &__title{
+        font-size: 2.5rem;
+        margin-bottom: $space-4;
+      }
+      &__tagline{        
+        font-size: $font-size-body-big;
+        font-weight: 300;
+        line-height: 1.65;
+        color:$neutral-600;
+      }
+      &__header { 
+        margin-bottom: 3.5rem;
+        max-width: 900px;
+      }
+      &__tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+    }
+
+    // Topbar
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4rem;
+      a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        text-decoration: none;
+        transition: opacity 0.15s;
+      }
+      a:hover { opacity: 1; }
+    }
+
+    .lock-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      border: 1px solid currentColor;
+      border-radius: 20px;
+      padding: 4px 10px;
+      letter-spacing: 0.3px;
+      opacity: 0.25;
+    }
+    
+
+    // Content
+    hr {
+      border: none;
+      border-top: 1px solid currentColor;
+      opacity: 0.1;
+      margin: 3rem 0;
+    }
+    
+    .section {
+      margin-bottom: 3.5rem; 
+      max-width: 900px;
+      &__label {
+        @extend .label--xs;
+        color:$color-accent;
+        margin-bottom: $space-2;
+      }
+      &__title{
+        margin-bottom: $space-4;
+      }
+      &__tagline{
+        margin-bottom:$space-4;
+      }
+      &__body {
+        font-size: $font-size-body-small;
+        line-height: 1.8;
+        font-weight: 300;
+        color: $neutral-600;
+        margin-bottom: $space-6;
+      }
+      h4.section__title{
+        margin-bottom: $space-1;
+      }
+    }
+    // cards
+
+    .cards__container{
+      display: flex;
+      margin: $space-8 0;
+    }
+    .card{
+      border-width: 1px 0 1px 1px; 
+      border-style: solid;
+      border-color: $neutral-100;
+      padding: $space-4 $space-6;
+      &:first-child{
+        border-radius: $space-4 0 0 $space-4;
+      }
+      &:last-child{
+        border-right: 1px solid $neutral-100;
+        border-radius: 0 $space-4 $space-4 0;
+      }
+      &__title{
+        @extend .label--xs;
+      }
+      &__body{
+        font-weight: $font-weight-black;
+      }
+    }
+    // timeline
+
+    .timeline{
+      margin-top: $space-6;
+      &__block{
+        position: relative;
+        padding: 0 $space-16 $space-6;
+        &::after{
+          content:"";
+          display: inline-block;
+          width: 2px;
+          height: 100%;
+          position: absolute;
+          background-color: $neutral-50;
+          left: $space-8;
+          top:0;
+        }
+        &::before{
+          content:"";
+          display: block;
+          width: 12px;
+          height: 12px;
+          background-color: $color-accent;
+          position: absolute;
+          top: 0;
+          left: 26.5px;
+          z-index: 1;
+          border-radius: 999px;
+        }
+      }
+      &__title{
+        margin-bottom: $space-2;
+      }
+      &__content{
+        font-size: $font-size-body-small;
+        line-height: 1.3rem;
+        color: $neutral-600;
+      }
+    }
+
+    .list{
+      display: flex;
+      gap:$space-3;
+      &__number{
+        font-size: $font-size-title-large;
+        font-weight: $font-weight-black;
+        color: $neutral-100;
+      }
+      &__content{
+        margin-top: $space-2;
+      }
+    }
+    .challenges{
+      &__block{
+        margin: $space-6 0;
+      }
+      &__title{
+        margin-bottom: $space-1;
+      }
+      &__body{
+        font-size: $font-size-body-small;
+        color: $neutral-600
+      }
+    }
+
+    /* ---------- Image grid ---------- */
+    .img{
+      &__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 1.5rem;
+      }
+      &__container{
+        aspect-ratio: 16/9;
+        border: 1px solid $neutral-100;
+        border-radius: $radius-md;
+        padding:$space-1;
+      }
+    }
+    .img-placeholder {
+      aspect-ratio: 16/9;
+      border: 1px solid currentColor;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      opacity: 0.2;
+    }
+
+    /* ---------- CTAs ---------- */
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn{
+      font-size: $font-size-small;
+      border-width: 1px;
+      padding: $space-2 $space-4;
+      border-radius: $radius-md;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <script>
+  function getCookie(name) {
+    return document.cookie.split('; ').find(r => r.startsWith(name + '='))?.split('=')[1];
+  }
+
+  if (getCookie('cs_unlocked') !== 'true') {
+    window.location.href = '/work/kula';
+  }
+
+  document.getElementById('lockBtn').addEventListener('click', () => {
+    document.cookie = "cs_unlocked=; path=/; max-age=0; SameSite=Strict";
+    window.location.href = '/work/kula';
+  });
+</script>

@@ -1,0 +1,147 @@
+---
+// src/pages/work/[slug]/index.astro
+// Password gate — drop this in src/pages/work/kula/index.astro (or any slug)
+// Change CASE_STUDY_PASSWORD and redirect URL before deploying.
+
+import Base from '../../../layouts/Base.astro';
+
+
+const CASE_STUDY_PASSWORD = "kula2026";
+const REDIRECT_TO = "/work/kula/case-study"; // URL of the case study page
+---
+
+
+
+<Base title="Lisandro Eijo — Senior UX/UI Designer" showNav={false}>
+  <section>
+    <a href="/#work" class="back-link">
+      <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back
+    </a>
+    <div class="container">
+      <div class="gate">
+        
+        <svg class="lock-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="18" width="28" height="18" rx="3.5" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M12 18V13a8 8 0 0 1 16 0v5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="20" cy="27" r="2" fill="currentColor"/>
+        </svg>
+        
+        <h1 class="gate-title">NDA-protected case study</h1>
+        <p class="gate-subtitle">
+          This work is shared selectively.<br />
+          If you have a password, go ahead.
+        </p>
+        
+        <div class="form">
+          <input
+          class="pw-input"
+          type="password"
+          id="pwInput"
+          placeholder="••••••••"
+          autocomplete="off"
+          autocorrect="off"
+          spellcheck="false"
+          autofocus
+          />
+          <p class="error-msg" id="errorMsg"></p>
+          <button class="btn btn--primary" id="submitBtn">Unlock</button>
+        </div>
+        
+        <p class="hint">
+          Don't have it? Drop me a message on
+          <a href="https://linkedin.com/in/lisandroeijo" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;" target="_blank" rel="noopener">LinkedIn</a>.
+        </p>
+        
+      </div>
+    </div>
+
+  </section>
+</Base>
+
+
+<style lang="scss">
+
+@use '../../../styles/tokens' as *;
+
+  .container{
+    min-height: 80vh;
+    max-width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .back-link{
+    display: flex;
+    // align-content: center;
+    margin: $space-4;
+    line-height: $space-8;
+    svg{
+      width: $space-4; 
+      
+    }
+  }
+  .lock-icon{
+    max-width: 50px;
+  }
+  .gate-title {
+    font-size: $font-size-h2;
+
+    font-weight: $font-weight-black;
+    letter-spacing: -0.4px;
+    margin-bottom: 8px;
+    color: $color-primary;
+  }
+  .gate-subtitle{
+    font-size: $font-size-medium;
+    margin: $space-4 0;
+  }
+  .hint{
+    font-size: $font-size-small;
+    margin: $space-6 0;
+    
+  }
+
+</style>
+
+<script define:vars={{ CASE_STUDY_PASSWORD, REDIRECT_TO }}>
+  const input = document.getElementById('pwInput');
+  const errorMsg = document.getElementById('errorMsg');
+  const btn = document.getElementById('submitBtn');
+
+  function shake() {
+    input.classList.remove('shake');
+    void input.offsetWidth; // reflow to restart animation
+    input.classList.add('shake');
+  }
+
+  function attempt() {
+    const val = input.value.trim();
+    if (!val) return;
+
+    if (val === CASE_STUDY_PASSWORD) {
+      // Store in sessionStorage so the case study page can verify
+      document.cookie = "cs_unlocked=true; path=/; SameSite=Strict";
+      window.location.href = REDIRECT_TO;
+    } else {
+      input.classList.add('is-error');
+      errorMsg.textContent = 'Wrong password. Try again.';
+      shake();
+      input.value = '';
+      setTimeout(() => input.focus(), 50);
+    }
+  }
+
+  btn.addEventListener('click', attempt);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') attempt();
+    if (input.classList.contains('is-error')) {
+      input.classList.remove('is-error');
+      errorMsg.textContent = '';
+    }
+  });
+</script>

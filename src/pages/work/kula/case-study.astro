@@ -74,7 +74,6 @@ const images = [
       <p class="label--xs section__label">Overview</p>
       <h3 class="section__title">A system to scale the product.</h3>
       <p class="section__body">
-        <!-- TODO: Add case study overview -->
          Kula is the design system I built for Relyance AI, an enterprise data privacy and compliance platform. The goal was to create a systematic foundation that would allow the product team to scale with visual consistency, faster design velocity, and real collaboration between design and engineering.</p>
       <p class="section__body">
         I started the project alone, establishing the architecture and foundations. Over time, other designers joined and contributed to the documentation while I continued expanding the components.
@@ -96,6 +95,7 @@ const images = [
       <p class="section__tagline">
         The process followed a clear logic: first everything components need to exist, then the components themselves, and finally the product-specific elements.
       </p>
+      <img src="/images/usecase-kula/Component-Structure.png" class="centered" alt="Diagram showing Kula's component architecture: design tokens (typography, color, spacing) flowing into a basic component, which then composes into a more complex business component">
       <div class="timeline">
         <div class="timeline__block">
           <h4 class="timeline__title">Phase 0 — Audit & Discovery</h4>
@@ -134,6 +134,7 @@ const images = [
       <p class="body-text">
         Every design system runs into some version of the same problems: adoption, documentation, and scale. Kula was no exception, and each challenge had its own resolution arc.
       </p>
+      <img src="/images/usecase-kula/Three__pillars.svg" class="centered" alt="Triangle diagram showing the three core challenges of Kula in tension: Documentation, Adoption, and Scale, with a center point representing the balance between them"/>
       <div class="challenges__section">
         <div class="challenges__block list">
           <div class="list__number">.01</div>
@@ -162,7 +163,7 @@ const images = [
             </p>
           </div>
         </div>
-      </div>   
+      </div>  
     </section>
     <section class="section">
       <p class="section__label">Screens</p>
@@ -172,14 +173,14 @@ const images = [
       </p> 
       <div class="img__grid">
         {images.map((src) => (
-         <div class="img__container">
-           <img src={src.img} /> 
-         </div>
-         ))}
-         
-       
+          <div class="img__container">
+            <img class="gallery-img" src={src.img} data-src={src.img} />
+          </div>
+        ))}
       </div>
+
     </section>
+    
 
     <section class="section">
       <p class="section__label">Outcome</p>
@@ -193,6 +194,7 @@ const images = [
 
         This required several sessions of intense discussion, identifying the right moments and features to bring in the new designs. A shared channel between design and engineering was created to keep the conversation in one place, and the design team committed to supporting developers throughout implementation and making the process as smooth as possible.
       </p>
+      <img src="/images/usecase-kula/Outcome.png" class="centered" alt="Diagram showing Kula Design System at the center, connected bidirectionally to three teams: UX, Engineering, and Product">
       <h4 class="section__title"> Coexistence is a design decision, not a limitation.</h4>
       <p class="section__body">
         The constraint of not being able to redesign the entire platform pushed us to design components that could coexist with the existing ones. That ended up being a strength: Kula was never a world apart — it was a coherent extension of what was already built.
@@ -205,9 +207,10 @@ const images = [
       <p class="section__body">
         Kula taught me that a design system is less a deliverable and more a living agreement between teams. The components, the documentation, the file structure — none of it matters if the people around it don't trust it or use it. The real work was building that trust.
       </p>
-    <hr />
-
+    </section> 
+    
     <section class="section">
+      <hr />
       <div class="cta-row">
         <!-- TODO: Replace href values -->
         <a class="btn btn--outline" href="/#work">Back to work</a>
@@ -218,13 +221,29 @@ const images = [
     </section>
 
   </div>
-
+  <!-- Modal -->
+  <div class="modal" id="imgModal">
+    <button class="modal__close" id="modalClose">✕</button>
+    <button class="modal__nav modal__nav--prev" id="modalPrev">
+      <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;">
+        <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <img class="modal__img" id="modalImg" src="" alt="" />
+    <button class="modal__nav modal__nav--next" id="modalNext">
+      <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;">
+        <path d="M5 2l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
 </BaseLayout>
 <style lang="scss">
     @use "../../../styles/tokens" as *;
     @use "../../../styles/typography"as *;
    
-
+    img.centered{
+      margin: 0 auto;
+    }
     //  page Layout
     .cs{
       &__page {
@@ -426,6 +445,7 @@ const images = [
         border: 1px solid $neutral-100;
         border-radius: $radius-md;
         padding:$space-1;
+        overflow: hidden;
       }
     }
     .img-placeholder {
@@ -440,6 +460,70 @@ const images = [
       opacity: 0.2;
     }
 
+    // images modal
+
+    .gallery-img {
+      cursor: zoom-in;
+      width: 100%;
+      border-radius: 8px;
+      transition: opacity 0.15s;
+      &:hover { opacity: 0.85; }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+
+      &.is-open { display: flex; }
+
+      &__img {
+        max-height: 90vh;
+        max-width: 90vw;
+        border-radius: 8px;
+        object-fit: contain;
+      }
+
+      &__close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.25rem;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.15s;
+        &:hover { opacity: 1; }
+      }
+      &__nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 999px;
+        color: white;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.15s;
+        &:hover { opacity: 1; }
+        &--prev { left: 1.5rem; }
+        &--next { right: 1.5rem; }
+      }
+    }
+
+    
     /* ---------- CTAs ---------- */
     .cta-row {
       display: flex;
@@ -462,16 +546,54 @@ const images = [
   </style>
 
   <script>
-  function getCookie(name) {
-    return document.cookie.split('; ').find(r => r.startsWith(name + '='))?.split('=')[1];
-  }
+    function getCookie(name) {
+      return document.cookie.split('; ').find(r => r.startsWith(name + '='))?.split('=')[1];
+    }
 
-  if (getCookie('cs_unlocked') !== 'true') {
-    window.location.href = '/work/kula';
-  }
+    if (getCookie('cs_unlocked') !== 'true') {
+      window.location.href = '/work/kula';
+    }
 
-  document.getElementById('lockBtn').addEventListener('click', () => {
-    document.cookie = "cs_unlocked=; path=/; max-age=0; SameSite=Strict";
-    window.location.href = '/work/kula';
-  });
+    document.getElementById('lockBtn').addEventListener('click', () => {
+      document.cookie = "cs_unlocked=; path=/; max-age=0; SameSite=Strict";
+      window.location.href = '/work/kula';
+    });
+
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalClose = document.getElementById('modalClose');
+    const modalPrev = document.getElementById('modalPrev');
+    const modalNext = document.getElementById('modalNext');
+
+    const galleryImgs = [...document.querySelectorAll('.gallery-img')];
+    let currentIndex = 0;
+
+    function openModal(index) {
+      currentIndex = index;
+      modalImg.src = galleryImgs[currentIndex].dataset.src;
+      modal.classList.add('is-open');
+    }
+
+    function navigate(dir) {
+      currentIndex = (currentIndex + dir + galleryImgs.length) % galleryImgs.length;
+      modalImg.src = galleryImgs[currentIndex].dataset.src;
+    }
+
+    galleryImgs.forEach((img, i) => {
+      img.addEventListener('click', () => openModal(i));
+    });
+
+    modalClose.addEventListener('click', () => modal.classList.remove('is-open'));
+    modalPrev.addEventListener('click', () => navigate(-1));
+    modalNext.addEventListener('click', () => navigate(1));
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('is-open');
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') modal.classList.remove('is-open');
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
 </script>

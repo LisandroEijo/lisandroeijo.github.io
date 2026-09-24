@@ -1,29 +1,29 @@
 ---
 const projects = [
   {
-    image: '/images/proyect-gallery_smart-savings.png',
-    title: 'Smart Savings',
-    link:  'https://www.behance.net/gallery/245960381/Smart-Savings-Bank-app-feature',
+    image: "/images/proyect-gallery_smart-savings.png",
+    title: "Smart Savings",
+    link: "https://www.behance.net/gallery/245960381/Smart-Savings-Bank-app-feature",
   },
   {
-    image: '/images/proyect-gallery_floraknow.png',
-    title: 'FloraKnow',
-    link:  'https://www.behance.net/gallery/196002239/FloraKnow-Plant-Care-App',
+    image: "/images/proyect-gallery_floraknow.png",
+    title: "FloraKnow",
+    link: "https://www.behance.net/gallery/196002239/FloraKnow-Plant-Care-App",
   },
   {
-    image: '/images/proyect-gallery_Ripio-rpc.png',
-    title: 'Ripio RPC',
-    link:  'https://www.behance.net/gallery/156711107/Sorteo-Qatar-RPC',
+    image: "/images/proyect-gallery_Ripio-rpc.png",
+    title: "Ripio RPC",
+    link: "https://www.behance.net/gallery/156711107/Sorteo-Qatar-RPC",
   },
   {
-    image: '/images/proyect-gallery_HCI.png',
-    title: 'HCI',
-    link:  'https://www.behance.net/gallery/123602481/HCI-03-INTERNAL-COMMUNICATION-TOOL-UXUI-DESIGN',
+    image: "/images/proyect-gallery_HCI.png",
+    title: "HCI",
+    link: "https://www.behance.net/gallery/123602481/HCI-03-INTERNAL-COMMUNICATION-TOOL-UXUI-DESIGN",
   },
   {
-    image: '/images/proyect-gallery_Nuin.png',
-    title: 'Nuin',
-    link:  'https://www.behance.net/gallery/114174817/Nuin-App',
+    image: "/images/proyect-gallery_Nuin.png",
+    title: "Nuin",
+    link: "https://www.behance.net/gallery/114174817/Nuin-App",
   },
 ];
 ---
@@ -32,34 +32,56 @@ const projects = [
   <div class="container">
     <h2 class="work__title">Featured Work</h2>
     <div class="work__carousel">
-      <button class="work__arrow work__arrow--prev" aria-label="Previous"> <img src="images/arrow__left.svg" alt="previous">  </button>
+      <button class="work__arrow work__arrow--prev" aria-label="Previous">
+        <img src="images/arrow__left.svg" alt="previous" />
+      </button>
       <div class="work__track-wrapper">
         <div class="work__track">
-          {projects.map((project) => (
-            <div class="work__card">
-              <a href={project.link}>
-                <img src={project.image} alt={project.title} />
-              </a>
-              {/* <p class="work__card-title">{project.title}</p> */}
-            </div>
-          ))}
+          {
+            projects.map((project) => (
+              <div class="work__card">
+                <a href={project.link}>
+                  <img src={project.image} alt={project.title} />
+                </a>
+                {/* <p class="work__card-title">{project.title}</p> */}
+              </div>
+            ))
+          }
         </div>
       </div>
-      <button class="work__arrow work__arrow--next" aria-label="Next"> <img src="images/arrow__right.svg" alt="next"></button>
+      <button class="work__arrow work__arrow--next" aria-label="Next">
+        <img src="images/arrow__right.svg" alt="next" /></button
+      >
     </div>
     <div class="work__dots">
-      {Array.from({ length: projects.length - 2 }).map((_, i) => (
-        <button class={`work__dot ${i === 0 ? 'work__dot--active' : ''}`} aria-label={`Go to slide ${i + 1}`} />
-      ))}
+      {
+        Array.from({ length: projects.length - 2 }).map((_, i) => (
+          <button
+            class={`work__dot ${i === 0 ? "work__dot--active" : ""}`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))
+      }
     </div>
     <div class="btn__container">
-      <a href="https://www.behance.net/LisandroEijo" class="btn btn--outline" target="_blank" rel="noopener noreferrer">More of my work</a>
+      <a
+        href="docs/Lisandro Eijo--Portfolio--2026.pdf"
+        class="btn btn--outline"
+        target="_blank"
+        rel="noopener noreferrer">Download my portfolio</a
+      >
+      <a
+        href="https://www.behance.net/LisandroEijo"
+        class="btn btn--outline"
+        target="_blank"
+        rel="noopener noreferrer">More of my work</a
+      >
     </div>
   </div>
 </section>
 
 <style lang="scss">
-  @use '../styles/tokens' as *;
+  @use "../styles/tokens" as *;
 
   .work {
     padding: $space-24 0;
@@ -90,9 +112,9 @@ const projects = [
     }
 
     &__card {
-      flex: 0 0 calc(33.333% - $space-4);
+      flex: 0 0 calc(50% - $space-2);
       overflow: hidden;
-      
+
       img {
         width: 100%;
         //height: 200px;
@@ -114,7 +136,6 @@ const projects = [
       padding: $space-2;
       flex-shrink: 0;
       width: 50px;
-      
     }
 
     &__dots {
@@ -123,43 +144,30 @@ const projects = [
       gap: $space-2;
       margin-top: $space-6;
     }
-    
   }
   @media (max-width: #{$bp-md}) {
     .work {
-      &__carousel{
+      &__carousel {
         margin: 0 1rem;
       }
       &__card {
-        flex: 0 0 calc(50% - $space-4);
+        flex: 0 0 100%;
       }
-      &__arrow{
-        width:36px;
+      &__arrow {
+        width: 36px;
         position: absolute;
         z-index: 1;
         left: 0;
-        &--next{
+        &--next {
           right: 0;
           left: initial;
         }
       }
     }
   }
-  
-  @media (max-width: #{$bp-sm}) {
-    .work {
-      &__card {
-        flex: 0 0 100%;
-      }
-     
-    }
-
-  }
-  
-    
 </style>
 <style lang="scss" is:global>
-  @use '../styles/tokens' as *;
+  @use "../styles/tokens" as *;
 
   .work__dot {
     width: 24px;
@@ -177,60 +185,73 @@ const projects = [
 </style>
 
 <script>
-  const track = document.querySelector('.work__track') as HTMLElement;
-  const dotsContainer = document.querySelector('.work__dots') as HTMLElement;
-  const prevBtn = document.querySelector('.work__arrow--prev');
-  const nextBtn = document.querySelector('.work__arrow--next');
+  const track = document.querySelector(".work__track") as HTMLElement;
+  const wrapper = document.querySelector(".work__track-wrapper") as HTMLElement;
+  const dotsContainer = document.querySelector(".work__dots") as HTMLElement;
+  const prevBtn = document.querySelector(".work__arrow--prev");
+  const nextBtn = document.querySelector(".work__arrow--next");
+  const cards = Array.from(
+    document.querySelectorAll(".work__card"),
+  ) as HTMLElement[];
 
-  const cards = document.querySelectorAll('.work__card');
   const total = cards.length;
   let current = 0;
+  let lastVisible = 0;
 
+  // Cuántas cards entran realmente, según lo que define el CSS
   function getVisible(): number {
-    if (window.innerWidth <= 480) return 1;
-    if (window.innerWidth <= 768) return 2;
-    return 3;
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    const cardWidth = cards[0].offsetWidth;
+    return Math.max(
+      1,
+      Math.floor((wrapper.offsetWidth + gap) / (cardWidth + gap)),
+    );
   }
 
   function buildDots() {
-    const visible = getVisible();
-    const count = total - visible + 1;
-    // console.log('dots count:', count);
-    dotsContainer.innerHTML = '';
+    const count = Math.max(1, total - getVisible() + 1);
+    dotsContainer.innerHTML = "";
     for (let i = 0; i < count; i++) {
-      const btn = document.createElement('button');
-      btn.className = `work__dot${i === current ? ' work__dot--active' : ''}`;
-      btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
-      btn.addEventListener('click', () => goTo(i));
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "work__dot";
+      btn.setAttribute("aria-label", `Go to slide ${i + 1}`);
+      btn.addEventListener("click", () => goTo(i));
       dotsContainer.appendChild(btn);
     }
   }
 
   function goTo(index: number) {
-    const visible = getVisible();
-    const max = total - visible;
+    const max = Math.max(0, total - getVisible());
     current = Math.max(0, Math.min(index, max));
 
-    const wrapper = document.querySelector('.work__track-wrapper') as HTMLElement;
-    const gap = parseFloat(getComputedStyle(track).gap) || 16;
-    const cardWidth = (wrapper.offsetWidth - gap * (visible - 1)) / visible;
-    track.style.transform = `translateX(-${current * (cardWidth + gap)}px)`;
+    const offset = cards[current].offsetLeft - cards[0].offsetLeft;
+    track.style.transform = `translateX(-${offset}px)`;
 
-    document.querySelectorAll('.work__dot').forEach((dot, i) => {
-      dot.classList.toggle('work__dot--active', i === current);
+    dotsContainer.querySelectorAll(".work__dot").forEach((dot, i) => {
+      dot.classList.toggle("work__dot--active", i === current);
+      if (i === current) dot.setAttribute("aria-current", "true");
+      else dot.removeAttribute("aria-current");
     });
+
+    prevBtn?.toggleAttribute("disabled", current === 0);
+    nextBtn?.toggleAttribute("disabled", current >= max);
   }
 
-  function init() {
-    current = 0;
-    buildDots();
-    goTo(0);
-    console.log('dotsContainer:', dotsContainer);
+  function onResize() {
+    const visible = getVisible();
+    if (visible !== lastVisible) {
+      lastVisible = visible;
+      buildDots();
+    }
+    goTo(current); // recalcula la posición sin volver al primer slide
   }
 
-  prevBtn?.addEventListener('click', () => goTo(current - 1));
-  nextBtn?.addEventListener('click', () => goTo(current + 1));
-  window.addEventListener('resize', init);
+  prevBtn?.addEventListener("click", () => goTo(current - 1));
+  nextBtn?.addEventListener("click", () => goTo(current + 1));
+  window.addEventListener("resize", onResize);
 
-  init();
+  lastVisible = getVisible();
+  buildDots();
+  goTo(0);
 </script>

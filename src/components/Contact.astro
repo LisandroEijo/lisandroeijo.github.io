@@ -1,32 +1,59 @@
 ---
+
 ---
 
 <section id="contact" class="contact">
   <div class="container">
-    <p class="contact__question">Do you have any questions or would you like to discuss a project?</p>
+    <p class="contact__question">
+      Do you have any questions or would you like to discuss a project?
+    </p>
     <p class="contact__cta">We can start a conversation.</p>
 
-    <form class="contact__form" action="https://formspree.io/f/xnjgyzjd" method="POST">
+    <form
+      class="contact__form"
+      action="https://formspree.io/f/xnjgyzjd"
+      method="POST"
+    >
       <input type="text" name="name" placeholder="Your name" required />
       <input type="email" name="email" placeholder="Your email" required />
-      <textarea name="message" placeholder="Your message" rows="5" required></textarea>
-      <button type="submit" class="btn btn--outline">Send message</button>
+      <textarea name="message" placeholder="Your message" rows="5" required
+      ></textarea>
+      <button
+        type="submit"
+        class="btn btn--outline"
+        name="Send message to Lisandro">Send message</button
+      >
     </form>
 
     <p class="contact__social-label">You can also find my work on:</p>
     <ul class="contact__social">
       <li>
-        <a href="https://linkedin.com/in/lisandro-eijo" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <a
+          href="https://linkedin.com/in/lisandro-eijo"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+        >
           <img src="/icons/Icon__Linkedin.svg" alt="LinkedIn" />
         </a>
       </li>
       <li>
-        <a href="https://behance.net/lisandroeijo" target="_blank" rel="noopener" aria-label="Behance">
+        <a
+          href="https://behance.net/lisandroeijo"
+          target="_blank"
+          rel="noopener"
+          aria-label="Behance"
+        >
           <img src="/icons/Icon__Behance.svg" alt="Behance" />
         </a>
       </li>
       <li>
-        <a href="https://dribbble.com/lichoeijo" target="_blank" rel="noopener" aria-label="Dribbble">
+        <a
+          href="https://dribbble.com/lichoeijo"
+          target="_blank"
+          rel="noopener"
+          aria-label="Dribbble"
+        >
           <img src="/icons/Icon__Dribbble.svg" alt="Dribbble" />
         </a>
       </li>
@@ -35,7 +62,7 @@
 </section>
 
 <style lang="scss">
-  @use '../styles/tokens' as *;
+  @use "../styles/tokens" as *;
 
   .contact {
     padding: $space-24 0;
@@ -59,8 +86,7 @@
       max-width: 560px;
       margin: $space-8 auto 0;
 
-      
-      button{
+      button {
         align-self: center;
       }
     }

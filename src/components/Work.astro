@@ -4,26 +4,31 @@ const projects = [
     image: "/images/proyect-gallery_smart-savings.png",
     title: "Smart Savings",
     link: "https://www.behance.net/gallery/245960381/Smart-Savings-Bank-app-feature",
+    label: "Smart Savings app feature case study (opens on Behance)",
   },
   {
     image: "/images/proyect-gallery_floraknow.png",
     title: "FloraKnow",
     link: "https://www.behance.net/gallery/196002239/FloraKnow-Plant-Care-App",
+    label: "FloraKnow plant care app case study (opens on Behance)",
   },
   {
     image: "/images/proyect-gallery_Ripio-rpc.png",
     title: "Ripio RPC",
     link: "https://www.behance.net/gallery/156711107/Sorteo-Qatar-RPC",
+    label: "Ripio RPC project case study (opens on Behance)",
   },
   {
     image: "/images/proyect-gallery_HCI.png",
     title: "HCI",
     link: "https://www.behance.net/gallery/123602481/HCI-03-INTERNAL-COMMUNICATION-TOOL-UXUI-DESIGN",
+    label: "HCI project case study (opens on Behance)",
   },
   {
     image: "/images/proyect-gallery_Nuin.png",
     title: "Nuin",
     link: "https://www.behance.net/gallery/114174817/Nuin-App",
+    label: "Nuin, mobile app case study (opens on Behance)",
   },
 ];
 ---
@@ -33,7 +38,11 @@ const projects = [
     <h2 class="work__title">Featured Work</h2>
     <div class="work__carousel">
       <button class="work__arrow work__arrow--prev" aria-label="Previous">
-        <img src="images/arrow__left.svg" alt="previous" />
+        <img
+          src="images/arrow__left.svg"
+          alt="previous"
+          aria-label="Previous project"
+        />
       </button>
       <div class="work__track-wrapper">
         <div class="work__track">
@@ -41,7 +50,11 @@ const projects = [
             projects.map((project) => (
               <div class="work__card">
                 <a href={project.link}>
-                  <img src={project.image} alt={project.title} />
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    aria-label={project.label}
+                  />
                 </a>
                 {/* <p class="work__card-title">{project.title}</p> */}
               </div>
@@ -50,7 +63,11 @@ const projects = [
         </div>
       </div>
       <button class="work__arrow work__arrow--next" aria-label="Next">
-        <img src="images/arrow__right.svg" alt="next" /></button
+        <img
+          src="images/arrow__right.svg"
+          alt="next"
+          aria-label="Next project"
+        /></button
       >
     </div>
     <div class="work__dots">
@@ -68,6 +85,7 @@ const projects = [
         href="docs/Lisandro Eijo--Portfolio--2026.pdf"
         class="btn btn--outline"
         target="_blank"
+        aria-label="Download my portfolio in PDF"
         rel="noopener noreferrer">Download my portfolio</a
       >
       <a

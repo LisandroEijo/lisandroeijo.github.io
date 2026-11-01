@@ -1,6 +1,5 @@
 ---
 import Base from "../layouts/Base.astro";
-import About from "../components/About.astro";
 
 import Work from "../components/Work.astro";
 import Contact from "../components/Contact.astro";
@@ -11,11 +10,30 @@ import Contact from "../components/Contact.astro";
     <div class="container">
       <h2 class="hero__title">UX/UI <br />Designer</h2>
       <h1 class="hero__name">Lisandro Eijo</h1>
+      <p class="hero__description">
+        I design products where complexity and trust matter: <strong
+          >fintech, crypto, SaaS, and data security.</strong
+        > For 15 years I’ve worked across <strong
+          >research, UX and UI, but my focus is design systems</strong
+        > that help teams ship faster and more consistently. I started out as an illustrator,
+        which is why I still sweat the details. Based in La Plata, Argentina, and
+        <strong
+          >available for remote freelance projects and long-term contracts.</strong
+        >
+      </p>
+      <div class="btn__container">
+        <a
+          href="docs/CV-Lisandro Eijo-2026_C.pdf"
+          class="btn btn--primary"
+          target="_blank"
+          rel="noopener"
+          aria-label="Download my CV on PDF">Download my CV</a
+        >
+      </div>
     </div>
   </section>
 
   <section id="about">
-    <About />
     <Work />
   </section>
 
@@ -42,12 +60,26 @@ import Contact from "../components/Contact.astro";
     }
 
     &__name {
-      font-size: clamp(2rem, 6vw, 4rem);
+      font-size: clamp(2.6rem, 6vw, 4rem);
       font-weight: $font-weight-light;
       color: $color-accent;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-top: $space-2;
+    }
+    &__description {
+      max-width: 800px;
+      font-size: $font-size-body-big;
+      line-height: 1.5;
+      margin-top: $space-6;
+      strong {
+        font-weight: $font-weight-bold;
+        color: $color-accent;
+      }
+      @media (max-width: #{$bp-md}) {
+        font-size: $font-size-body;
+        margin-bottom: $space-12;
+      }
     }
   }
 </style>

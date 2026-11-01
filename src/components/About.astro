@@ -4,22 +4,26 @@
 
 <section id="about" class="about">
   <div class="container">
-    <h2 class="about__title">About Me</h2>
     <div class="about__content">
-      <p class="about__text">
-        I'm a <strong class="text-accent">Senior UX/UI Designer</strong> with 14+
-        years of experience across the full product lifecycle: from early discovery
-        and research to high-fidelity UI, design systems, and developer handoff. I've
-        led teams, mentored designers, and <strong class="text-accent"
-          >shipped products in fintech, crypto, SaaS, and data security.</strong
-        > I'm most effective in environments where design needs to be both strategic
-        and hands-on.
-      </p>
-      <img
-        class="about__photo"
-        src="images/About__profile-photo.png"
-        alt="Lisandro Eijo"
-      />
+      <img class="about__photo" src="images/CV-Photo.png" alt="Lisandro Eijo" />
+      <div class="about__text">
+        <h2 class="about__title">About Me</h2>
+        <p class="">
+          I started as an illustrator, and that's where my eye for detail comes
+          from. Ten years at a digital agency taught me to adapt: <strong
+            >many clients, many teams, and the same recurring problems</strong
+          >, which is where I started thinking in systems. At Ripio, I led
+          design across several squads, <strong
+            >prioritizing accessibility and usability.</strong
+          > At Producers Trust I worked as an individual contributor with an international
+          team. <strong>
+            At Relyance AI I built a design system from scratch.</strong
+          > Along the way, one thing stayed constant: I design for people who just
+          need the product to work. I'm comfortable working solo or inside teams,
+          small or large, and I put accessibility and usability at the center of every
+          decision, with WCAG AA as my baseline.
+        </p>
+      </div>
     </div>
     <a
       href="docs/CV-Lisandro Eijo-2026_C.pdf"
@@ -35,7 +39,7 @@
   @use "../styles/tokens" as *;
 
   .about {
-    padding: $space-24 0;
+    padding: $space-20 0;
     text-align: center;
 
     &__title {
@@ -46,15 +50,15 @@
     &__content {
       display: flex;
       align-items: center;
-      gap: $space-8;
-      max-width: 700px;
-      margin: 0 auto $space-12;
+      gap: $space-6;
+      Strong {
+        font-weight: $font-weight-bold;
+        color: $color-accent;
+      }
     }
 
     &__text {
-      flex: 1;
-      font-size: $font-size-body-big;
-      text-align: right;
+      text-align: left;
     }
 
     &__photo {

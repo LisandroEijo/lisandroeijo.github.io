@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <nav class="nav">
@@ -11,14 +12,14 @@
     <ul class="nav__links">
       <li><a href="/#home" data-section="home">Home</a></li>
       <li><a href="/about" data-section="about">About</a></li>
-      <li><a href="/#work" data-section="work">Work</a></li>
+      <li><a href="/work" data-section="work">Work</a></li>
       <li><a href="/#contact" data-section="contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 
 <style lang="scss">
-  @use '../styles/tokens' as *;
+  @use "../styles/tokens" as *;
 
   .nav {
     position: fixed;
@@ -50,13 +51,21 @@
         height: 2px;
         background-color: $color-primary;
         border-radius: 2px;
-        transition: transform 0.3s ease, opacity 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          opacity 0.3s ease;
       }
 
       &.is-open {
-        span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        span:nth-child(2) { opacity: 0; }
-        span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        span:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+        span:nth-child(2) {
+          opacity: 0;
+        }
+        span:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
       }
     }
 
@@ -104,11 +113,11 @@
         right: 0;
         border-radius: $radius-md;
         overflow: hidden;
-        
+
         &.is-open {
           display: flex;
         }
-        
+
         a {
           display: inline-block;
           width: 160px;
@@ -116,7 +125,7 @@
           border-bottom: none;
           // border-left: 4px solid transparent;
           // background-color: transparent;
-          
+
           &.active {
             border-left-color: $color-accent;
             border-bottom-color: transparent;
@@ -128,37 +137,43 @@
 </style>
 
 <script>
-  const burger = document.querySelector('.nav__burger');
-  const links = document.querySelector('.nav__links');
+  const burger = document.querySelector(".nav__burger");
+  const links = document.querySelector(".nav__links");
 
-  burger?.addEventListener('click', () => {
-    burger.classList.toggle('is-open');
-    burger.setAttribute('aria-expanded', burger.classList.contains('is-open').toString());
-    links?.classList.toggle('is-open');
+  burger?.addEventListener("click", () => {
+    burger.classList.toggle("is-open");
+    burger.setAttribute(
+      "aria-expanded",
+      burger.classList.contains("is-open").toString(),
+    );
+    links?.classList.toggle("is-open");
   });
 
-  document.querySelectorAll('.nav__links a').forEach(link => {
-    link.addEventListener('click', () => {
-      burger?.classList.remove('is-open');
-      links?.classList.remove('is-open');
+  document.querySelectorAll(".nav__links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      burger?.classList.remove("is-open");
+      links?.classList.remove("is-open");
     });
   });
 
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('[data-section]');
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll("[data-section]");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        navLinks.forEach((link) => {
-          link.classList.remove('active');
-          if (link.getAttribute('data-section') === entry.target.id) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  }, { threshold: 0.4 });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("data-section") === entry.target.id) {
+              link.classList.add("active");
+            }
+          });
+        }
+      });
+    },
+    { threshold: 0.4 },
+  );
 
   sections.forEach((section) => observer.observe(section));
 </script>

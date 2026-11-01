@@ -1,0 +1,35 @@
+---
+import Base from "../../layouts/Base.astro";
+
+import Contact from "../../components/Contact.astro";
+---
+
+<Base title="Lisandro Eijo — Senior UX/UI Designer">
+    <section id="Work" class="work">
+        <div class="container">
+            <h1>Selected Work</h1>
+            <p>
+                Fifteen years of designing products and the systems behind them.
+                These projects show how I work across fintech, SaaS, and
+                consumer apps, from untangling a messy problem to shipping a
+                scalable design system.
+            </p>
+        </div>
+    </section>
+    <section id="contact">
+        <Contact />
+    </section>
+</Base>
+
+<style lang="scss">
+    @use "../../styles/tokens" as *;
+    @use "../../styles/typography" as *;
+
+    .work {
+        margin-top: $space-24;
+        h1 {
+            font-size: $font-size-h2;
+            margin-bottom: $space-6;
+        }
+    }
+</style>

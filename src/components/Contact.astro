@@ -4,6 +4,7 @@
 
 <section id="contact" class="contact">
   <div class="container">
+    <h3 class="contact__title">Have a project in mind?</h3>
     <p class="contact__question">
       Do you have any questions or would you like to discuss a project?
     </p>
@@ -65,9 +66,12 @@
   @use "../styles/tokens" as *;
 
   .contact {
-    padding: $space-24 0;
+    padding: $space-6 0;
     text-align: center;
-
+    &__title {
+      font-size: $font-size-h2;
+      margin-bottom: $space-4;
+    }
     &__question {
       font-size: $font-size-body;
       // color: $color-text-light;

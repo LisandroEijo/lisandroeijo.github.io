@@ -2,6 +2,29 @@
 import Base from "../../layouts/Base.astro";
 
 import Contact from "../../components/Contact.astro";
+const projects = [
+    {
+        image: "/images/proyect-gallery_smart-savings.png",
+        title: "Smart Savings",
+        subtitle: "Improving saving habits in home banking context",
+        description:
+            "Smart Savings is a feature that helps users improve their saving habits by proThis project explores how users interact with savings features in home banking apps, and proposes a solution to the frictions they usually encounter.",
+        tags: ["UX/UI Design", "Fintech", "Home Banking", "Product Discovery"],
+        link: "https://www.behance.net/gallery/245960381/Smart-Savings-Bank-app-feature",
+        label: "Smart Savings app feature case study (opens on Behance)",
+    },
+    {
+        image: "/images/proyect-gallery_floraknow.png",
+        title: "FloraKnow",
+        subtitle: "Plant identification and care app",
+        description:
+            "FloraKnow is a mobile app that helps users identify plants and learn about their care requirements. This project focuses on creating an intuitive interface for plant enthusiasts and beginners alike.",
+        tags: ["UX/UI Design", "Mobile App", "Plant Care", "Product Discovery"],
+
+        link: "https://www.behance.net/gallery/245960381/FloraKnow-Plant-Identification-App",
+        label: "FloraKnow app case study (opens on Behance)",
+    },
+];
 ---
 
 <Base title="Lisandro Eijo — Senior UX/UI Designer">
@@ -14,12 +37,35 @@ import Contact from "../../components/Contact.astro";
                 consumer apps, from untangling a messy problem to shipping a
                 scalable design system.
             </p>
+            <div class="Work-projects-gallery">
+                {
+                    projects.map((project) => (
+                        <div class="Work-gallery__block">
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                class="project__image"
+                            />
+                            <div class="project__description">
+                                <h3>{project.title}</h3>
+                                <p>{project.subtitle}</p>
+                                <p>{project.description}</p>
+                                <div class="tags">
+                                    {project.tags.map((tag) => (
+                                        <span class="tag">{tag}</span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
         </div>
     </section>
-    <section id="contact">
-        <Contact />
-    </section>
 </Base>
+<section id="contact">
+    <Contact />
+</section>
 
 <style lang="scss">
     @use "../../styles/tokens" as *;
@@ -31,5 +77,18 @@ import Contact from "../../components/Contact.astro";
             font-size: $font-size-h2;
             margin-bottom: $space-6;
         }
+    }
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $space-2;
+        margin: $space-4 0;
+    }
+    .tag {
+        background-color: $color-primary;
+        color: #fff;
+        padding: $space-2 $space-4;
+        border-radius: $radius-md;
+        font-size: $font-size-small;
     }
 </style>

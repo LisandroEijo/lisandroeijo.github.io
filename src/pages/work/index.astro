@@ -40,20 +40,25 @@ const projects = [
             <div class="Work-projects-gallery">
                 {
                     projects.map((project) => (
-                        <div class="Work-gallery__block">
+                        <div class="work-gallery__block">
                             <img
                                 src={project.image}
                                 alt={project.title}
                                 class="project__image"
                             />
-                            <div class="project__description">
-                                <h3>{project.title}</h3>
-                                <p>{project.subtitle}</p>
-                                <p>{project.description}</p>
-                                <div class="tags">
+                            <div class="project__information">
+                                <h3 class="project__title">{project.title}</h3>
+                                <p class="project__subtitle">{project.subtitle}</p>
+                                <div class="tag__container">
                                     {project.tags.map((tag) => (
-                                        <span class="tag">{tag}</span>
+                                        <span class="badge">{tag}</span>
                                     ))}
+                                </div>
+                                <p class="project__description">{project.description}</p>
+                                <div class="btn__container">
+                                    <a href={project.link} class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+                                        See More
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -62,10 +67,10 @@ const projects = [
             </div>
         </div>
     </section>
+    <section id="contact">
+        <Contact />
+    </section>
 </Base>
-<section id="contact">
-    <Contact />
-</section>
 
 <style lang="scss">
     @use "../../styles/tokens" as *;
@@ -77,8 +82,36 @@ const projects = [
             font-size: $font-size-h2;
             margin-bottom: $space-6;
         }
+
     }
-    .tags {
+    .work-gallery{
+        &__block{
+            display: flex;
+            gap: $space-6;
+            margin: $space-12 0;
+        }
+    }
+    .project{
+        &__image{
+            max-width: 464px;
+            height: auto;
+            border-radius: $radius-md;
+        }
+        &__information{
+            margin-left: $space-6;
+        }
+        &__title{
+            font-size: $font-size-h3;
+            margin-bottom: $space-2;
+        }
+        &__subtitle{
+            font-size: $font-size-body-big;
+            margin-bottom: $space-4;
+            color: $color-accent;
+        }
+    
+    }
+    .tag__container{
         display: flex;
         flex-wrap: wrap;
         gap: $space-2;

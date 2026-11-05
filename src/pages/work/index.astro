@@ -1,46 +1,27 @@
 ---
 import Base from "../../layouts/Base.astro";
-
+import { selectedProjects as projects } from "../../data/projects";
 import Contact from "../../components/Contact.astro";
-const projects = [
-    {
-        image: "/images/proyect-gallery_smart-savings.png",
-        title: "Smart Savings",
-        subtitle: "Improving saving habits in home banking context",
-        description:
-            "Smart Savings is a feature that helps users improve their saving habits by proThis project explores how users interact with savings features in home banking apps, and proposes a solution to the frictions they usually encounter.",
-        tags: ["UX/UI Design", "Fintech", "Home Banking", "Product Discovery"],
-        link: "https://www.behance.net/gallery/245960381/Smart-Savings-Bank-app-feature",
-        label: "Smart Savings app feature case study (opens on Behance)",
-    },
-    {
-        image: "/images/proyect-gallery_floraknow.png",
-        title: "FloraKnow",
-        subtitle: "Plant identification and care app",
-        description:
-            "FloraKnow is a mobile app that helps users identify plants and learn about their care requirements. This project focuses on creating an intuitive interface for plant enthusiasts and beginners alike.",
-        tags: ["UX/UI Design", "Mobile App", "Plant Care", "Product Discovery"],
-
-        link: "https://www.behance.net/gallery/245960381/FloraKnow-Plant-Identification-App",
-        label: "FloraKnow app case study (opens on Behance)",
-    },
-];
 ---
 
 <Base title="Lisandro Eijo — Senior UX/UI Designer">
     <section id="Work" class="work">
         <div class="container">
-            <h1>Selected Work</h1>
+            <h1>Work</h1>
             <p>
                 Fifteen years of designing products and the systems behind them.
                 These projects show how I work across fintech, SaaS, and
                 consumer apps, from untangling a messy problem to shipping a
                 scalable design system.
             </p>
+            <h2>Selected UX Projects</h2>
             <div class="Work-projects-gallery">
                 {
-                    projects.map((project) => (
-                        <div class="work-gallery__block">
+                    projects.map((project, index) => (
+                        <div class:list={[
+                            "work-gallery__block",
+                            { "work-gallery__block--even": index % 2 === 1 },
+                        ]}>
                             <img
                                 src={project.image}
                                 alt={project.title}
@@ -90,6 +71,15 @@ const projects = [
             gap: $space-6;
             margin: $space-12 0;
         }
+        &__block--even{
+            flex-direction: row-reverse;
+            .project__information{
+                text-align: right;
+                .btn__container{
+                    justify-content: flex-end;
+                }
+            }
+        }   
     }
     .project{
         &__image{
@@ -97,9 +87,7 @@ const projects = [
             height: auto;
             border-radius: $radius-md;
         }
-        &__information{
-            margin-left: $space-6;
-        }
+       
         &__title{
             font-size: $font-size-h3;
             margin-bottom: $space-2;

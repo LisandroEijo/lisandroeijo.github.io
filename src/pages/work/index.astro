@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import { selectedProjects as projects } from "../../data/projects";
 import Contact from "../../components/Contact.astro";
+import Icon from "../../Icons/components/icons.astro";
 ---
 
 <Base title="Lisandro Eijo — Senior UX/UI Designer">
@@ -15,13 +16,23 @@ import Contact from "../../components/Contact.astro";
                 scalable design system.
             </p>
             <h2>Selected UX Projects</h2>
+
+            <a href="/" class="btn btn--outline">
+                <Icon name="arrow-left" size="sm" />
+                Volver
+            </a>
             <div class="Work-projects-gallery">
                 {
                     projects.map((project, index) => (
-                        <div class:list={[
-                            "work-gallery__block",
-                            { "work-gallery__block--even": index % 2 === 1 },
-                        ]}>
+                        <div
+                            class:list={[
+                                "work-gallery__block",
+                                {
+                                    "work-gallery__block--even":
+                                        index % 2 === 1,
+                                },
+                            ]}
+                        >
                             <img
                                 src={project.image}
                                 alt={project.title}
@@ -29,15 +40,24 @@ import Contact from "../../components/Contact.astro";
                             />
                             <div class="project__information">
                                 <h3 class="project__title">{project.title}</h3>
-                                <p class="project__subtitle">{project.subtitle}</p>
+                                <p class="project__subtitle">
+                                    {project.subtitle}
+                                </p>
                                 <div class="tag__container">
                                     {project.tags.map((tag) => (
                                         <span class="badge">{tag}</span>
                                     ))}
                                 </div>
-                                <p class="project__description">{project.description}</p>
+                                <p class="project__description">
+                                    {project.description}
+                                </p>
                                 <div class="btn__container">
-                                    <a href={project.link} class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+                                    <a
+                                        href={project.link}
+                                        class="btn btn--primary"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         See More
                                     </a>
                                 </div>
@@ -63,43 +83,41 @@ import Contact from "../../components/Contact.astro";
             font-size: $font-size-h2;
             margin-bottom: $space-6;
         }
-
     }
-    .work-gallery{
-        &__block{
+    .work-gallery {
+        &__block {
             display: flex;
             gap: $space-6;
             margin: $space-12 0;
         }
-        &__block--even{
+        &__block--even {
             flex-direction: row-reverse;
-            .project__information{
+            .project__information {
                 text-align: right;
-                .btn__container{
+                .btn__container {
                     justify-content: flex-end;
                 }
             }
-        }   
+        }
     }
-    .project{
-        &__image{
+    .project {
+        &__image {
             max-width: 464px;
             height: auto;
             border-radius: $radius-md;
         }
-       
-        &__title{
+
+        &__title {
             font-size: $font-size-h3;
             margin-bottom: $space-2;
         }
-        &__subtitle{
+        &__subtitle {
             font-size: $font-size-body-big;
             margin-bottom: $space-4;
             color: $color-accent;
         }
-    
     }
-    .tag__container{
+    .tag__container {
         display: flex;
         flex-wrap: wrap;
         gap: $space-2;

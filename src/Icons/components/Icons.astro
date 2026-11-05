@@ -1,0 +1,27 @@
+---
+// src/components/Icon.astro
+interface Props {
+    name: string;
+    size?: "sm" | "md" | "lg";
+    label?: string; // si lo pasás, el ícono es informativo
+    class?: string;
+}
+const { name, size = "md", label, class: className } = Astro.props;
+
+const icons = import.meta.glob("../icons/*.svg", {
+    query: "?raw",
+    import: "default",
+    eager: true,
+}) as Record<string, string>;
+
+const svg = icons[`../icons/${name}.svg`];
+if (!svg) throw new Error(`Icon "${name}" no existe`);
+---
+
+<span
+    class:list={["icon", `icon--${size}`, className]}
+    role={label ? "img" : undefined}
+    aria-label={label}
+    aria-hidden={label ? undefined : "true"}
+    set:html={svg}
+/>

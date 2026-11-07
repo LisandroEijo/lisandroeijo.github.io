@@ -87,7 +87,8 @@ $bp-lg: 1024px;
   width: var(--icon-size);
   height: var(--icon-size);
   color: inherit;
-
+  align-items: center;
+  justify-content: center;  
   svg { width: 100%; height: 100%; display: block; }
 
   &--sm { --icon-size: var(--icon-size-sm, 1rem); }

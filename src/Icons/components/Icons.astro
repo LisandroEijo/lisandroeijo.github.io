@@ -8,13 +8,13 @@ interface Props {
 }
 const { name, size = "md", label, class: className } = Astro.props;
 
-const icons = import.meta.glob("../icons/*.svg", {
+const icons = import.meta.glob("../*.svg", {
     query: "?raw",
     import: "default",
     eager: true,
 }) as Record<string, string>;
 
-const svg = icons[`../icons/${name}.svg`];
+const svg = icons[`../${name}.svg`];
 if (!svg) throw new Error(`Icon "${name}" no existe`);
 ---
 

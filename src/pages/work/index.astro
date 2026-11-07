@@ -2,7 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import { selectedProjects as projects } from "../../data/projects";
 import Contact from "../../components/Contact.astro";
-import Icon from "../../Icons/components/icons.astro";
+import Icon from "../../Icons/components/Icons.astro";
 ---
 
 <Base title="Lisandro Eijo — Senior UX/UI Designer">
@@ -15,12 +15,8 @@ import Icon from "../../Icons/components/icons.astro";
                 consumer apps, from untangling a messy problem to shipping a
                 scalable design system.
             </p>
-            <h2>Selected UX Projects</h2>
+            <h2 class="work__subtitle">Selected UX Projects</h2>
 
-            <a href="/" class="btn btn--outline">
-                <Icon name="arrow-left" size="sm" />
-                Volver
-            </a>
             <div class="Work-projects-gallery">
                 {
                     projects.map((project, index) => (
@@ -59,6 +55,7 @@ import Icon from "../../Icons/components/icons.astro";
                                         rel="noopener noreferrer"
                                     >
                                         See More
+                                        <Icon name="chevron-right" size="md" />
                                     </a>
                                 </div>
                             </div>
@@ -81,14 +78,18 @@ import Icon from "../../Icons/components/icons.astro";
         margin-top: $space-24;
         h1 {
             font-size: $font-size-h2;
-            margin-bottom: $space-6;
+            margin: $space-6  0 $space-3;
+        }
+        &__subtitle {
+            font-size: $font-size-h3;
+            margin: $space-12 0 $space-6 0;
         }
     }
     .work-gallery {
         &__block {
             display: flex;
             gap: $space-6;
-            margin: $space-12 0;
+            margin: 0 0 $space-20;
         }
         &__block--even {
             flex-direction: row-reverse;

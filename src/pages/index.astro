@@ -1,8 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
 
-import Work from "../components/Work.astro";
+import Work from "../components/FeaturedWork.astro";
 import Contact from "../components/Contact.astro";
+import Icon from "../Icons/components/Icons.astro";
 ---
 
 <Base title="Lisandro Eijo — Senior UX/UI Designer">
@@ -27,13 +28,15 @@ import Contact from "../components/Contact.astro";
           class="btn btn--primary"
           target="_blank"
           rel="noopener"
-          aria-label="Download my CV on PDF">Download my CV</a
+          aria-label="Download my CV on PDF">
+          <Icon name="download" size="md" />
+          Download my CV</a
         >
       </div>
     </div>
   </section>
 
-  <section id="about">
+  <section id="Work">
     <Work />
   </section>
 

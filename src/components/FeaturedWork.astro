@@ -1,5 +1,6 @@
 ---
 import { featuredProjects as projects } from "../data/projects";
+import Icon from "../Icons/components/Icons.astro";
 ---
 
 <section id="work" class="work">
@@ -55,14 +56,18 @@ import { featuredProjects as projects } from "../data/projects";
         class="btn btn--outline"
         target="_blank"
         aria-label="Download my portfolio in PDF"
-        rel="noopener noreferrer">portfolio in PDF</a
-      >
+        rel="noopener noreferrer">
+          <Icon name="download" size="md" />
+          portfolio in PDF
+        </a>
       <a
         href="https://www.behance.net/LisandroEijo"
         class="btn btn--outline"
         target="_blank"
-        rel="noopener noreferrer">See more</a
-      >
+        rel="noopener noreferrer">
+          See more
+          <Icon name="external-link" size="md" />
+        </a>
     </div>
   </div>
 </section>

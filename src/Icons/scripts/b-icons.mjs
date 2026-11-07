@@ -1,8 +1,8 @@
 import { optimize } from 'svgo';
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 
-const src = 'src/icons/raw';
-const out = 'src/icons';
+const src = 'src/Icons/raw';
+const out = 'src/Icons';
 
 for (const file of readdirSync(src).filter(f => f.endsWith('.svg'))) {
     const { data } = optimize(readFileSync(`${src}/${file}`, 'utf8'), {

@@ -13,3 +13,29 @@
   margin: 0 auto;
   padding: 0 $space-4;
 }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  @media (min-width: #{$bp-lg}) {
+    flex-wrap: nowrap;
+  }
+  gap: $space-4;
+}
+.col-lg {
+  flex: 0 0 100%;
+  @media (min-width: #{$bp-lg}) {
+    flex: 0 0 calc(100% / 12 * 8);
+  }
+}
+.col-md {
+  flex: 0 0 100%;
+  @media (min-width: #{$bp-lg}) {
+    flex: 0 0 calc(100% / 12 * 6);
+  }
+}
+.col-sm {
+  flex: 0 0 100%;
+  @media (min-width: #{$bp-lg}) {
+    flex: 0 0 calc(100% / 12 * 4);
+  }
+} 

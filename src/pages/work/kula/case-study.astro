@@ -1,5 +1,4 @@
 ---
-import type { $brand } from 'astro:schema';
 import BaseLayout from '../../../layouts/Base.astro';
 
 const images = [
@@ -50,10 +49,8 @@ const images = [
       </div>
     </header>
 
-    <hr />
-
     <section class="section">
-        <div class="cards__container">
+      <div class="cards__container">
           <div class="card">
             <p class="card__title">Role</p>
             <p class="card__body">DS Lead</p> 
@@ -71,13 +68,13 @@ const images = [
             <p class="card__body">Figma + React.js</p> 
           </div>
         </div>
-      <p class="label--xs section__label">Overview</p>
+     <!-- <p class="label--xs section__label">Overview</p>
       <h3 class="section__title">A system to scale the product.</h3>
       <p class="section__body">
          Kula is the design system I built for Relyance AI, an enterprise data privacy and compliance platform. The goal was to create a systematic foundation that would allow the product team to scale with visual consistency, faster design velocity, and real collaboration between design and engineering.</p>
       <p class="section__body">
         I started the project alone, establishing the architecture and foundations. Over time, other designers joined and contributed to the documentation while I continued expanding the components.
-      </p>
+      </p> -->
     </section>
 
     <section class="section">
@@ -90,12 +87,20 @@ const images = [
     </section>
 
     <section class="section">
-      <p class="section__label">Process</p>
-      <h3 class="section__title">Foundations first</h3> 
-      <p class="section__tagline">
-        The process followed a clear logic: first everything components need to exist, then the components themselves, and finally the product-specific elements.
-      </p>
-      <img src="/images/usecase-kula/Component-Structure.png" class="centered" alt="Diagram showing Kula's component architecture: design tokens (typography, color, spacing) flowing into a basic component, which then composes into a more complex business component">
+      <div class="row">
+        <div class="col-md">
+          <p class="section__label">Process</p>
+          <h3 class="section__title">Foundations first</h3> 
+          <p class="section__tagline">
+            The process followed a clear logic: first everything components need to exist, then the components themselves, and finally the product-specific elements.
+          </p>
+ 
+        </div>
+        <div class="col-md">
+          <img src="/images/usecase-kula/Component-Structure.png" class="centered" alt="Diagram showing Kula's component architecture: design tokens (typography, color, spacing) flowing into a basic component, which then composes into a more complex business component">
+
+        </div>
+      </div>
       <div class="timeline">
         <div class="timeline__block">
           <h4 class="timeline__title">Phase 0 — Audit & Discovery</h4>
@@ -245,9 +250,16 @@ const images = [
       margin: 0 auto;
     }
     //  page Layout
+    header{
+      width: 50%;
+    }
     .cs{
       &__page {
-        max-width: 1100px;
+        background-image: url("/public/images/usecase-kula/Kula--hero.png");
+        background-size: 60%;
+        background-position: top right;
+        background-repeat: no-repeat;
+        max-width: 1200px;
         margin: 0 auto;
         padding: 4rem 2rem 8rem;
         animation: fadeUp 0.4s ease forwards;
@@ -319,7 +331,7 @@ const images = [
     
     .section {
       margin-bottom: 3.5rem; 
-      max-width: 900px;
+      //max-width: 900px;
       &__label {
         @extend .label--xs;
         color:$color-accent;
@@ -353,6 +365,7 @@ const images = [
       border-style: solid;
       border-color: $neutral-100;
       padding: $space-4 $space-6;
+      background-color: $color-bg;
       &:first-child{
         border-radius: $space-4 0 0 $space-4;
       }

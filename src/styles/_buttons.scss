@@ -1,7 +1,11 @@
 @use 'tokens' as *;
 
 .btn {
-  display: inline-block;
+ 
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
   padding: $space-3 $space-8;
   border-radius: $radius-lg;
   font-family: $font-family;

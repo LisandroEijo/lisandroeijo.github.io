@@ -18,7 +18,7 @@ for (const file of files) {
 for (const file of files) {
     const { data } = optimize(readFileSync(`${src}/${file}`, 'utf8'), {
         plugins: [
-            { name: 'preset-default', params: { overrides: { removeViewBox: false } } },
+            'preset-default',
             'removeDimensions',
             { name: 'convertColors', params: { currentColor: true } },
         ],

@@ -1,0 +1,128 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  link: string;
+}
+
+const { title, subtitle, link } = Astro.props;
+---
+
+<nav class="project-navigation" aria-label="Project navigation">
+  <a class="project-navigation__back" href="/work">
+    <svg viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M10 3 5 8l5 5M5 8h10" />
+    </svg>
+    <span>Back to work</span>
+  </a>
+
+  <div class="project-navigation__details">
+    <p class="project-navigation__eyebrow">Next project</p>
+    <h2>{title}</h2>
+    <p class="project-navigation__subtitle">{subtitle}</p>
+  </div>
+
+  <a class="btn btn--outline project-navigation__link" href={link}>
+    <svg viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M2 8h12m-5-5 5 5-5 5" />
+    </svg>
+    <span>Next project</span>
+  </a>
+</nav>
+
+<style lang="scss">
+  @use "../styles/tokens" as *;
+
+  .project-navigation {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) auto;
+    align-items: center;
+    min-height: 136px;
+    padding: $space-6 $space-8;
+    border: 1px solid $neutral-200;
+    border-radius: $radius-xl;
+    background: $neutral-50;
+  }
+
+  .project-navigation__back,
+  .project-navigation__link {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    color: $color-accent;
+    font-size: $font-size-body-big;
+    text-decoration: none;
+    white-space: nowrap;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.5;
+      flex: 0 0 auto;
+    }
+  }
+
+  .project-navigation__details {
+    min-width: 0;
+    padding-left: clamp($space-6, 10vw, $space-16);
+    border-left: 1px solid $neutral-200;
+
+    h2 {
+      margin: 0;
+      color: $color-primary;
+      font-size: $font-size-title-large;
+      line-height: 1.1;
+    }
+  }
+
+  .project-navigation__eyebrow {
+    margin: 0;
+    color: $color-accent;
+    font-size: $font-size-body-small;
+    font-weight: $font-weight-bold;
+    letter-spacing: 1.2px;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .project-navigation__subtitle {
+    margin: $space-1 0 0;
+    color: $color-text-light;
+    font-size: $font-size-body;
+  }
+
+  .project-navigation__link {
+    justify-content: center;
+    padding: $space-2 $space-4;
+    border-width: 1px;
+    border-radius: $radius-md;
+    font-size: $font-size-small;
+  }
+
+  @media (max-width: $bp-md) {
+    .project-navigation {
+      grid-template-columns: 1fr auto;
+      gap: $space-4;
+      //padding: $space-4;
+    }
+
+    .project-navigation__back {
+      grid-column: 1 / -1;
+      font-size: $font-size-small;
+    }
+
+    .project-navigation__details {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .project-navigation__link {
+      padding: $space-2 $space-3;
+      font-size: $font-size-small;
+    }
+  }
+</style>

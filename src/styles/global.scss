@@ -20,6 +20,9 @@
     flex-wrap: nowrap;
   }
   gap: $space-4;
+  &.align-center {
+    align-items: center;
+  }
 }
 .col-lg {
   flex: 0 0 100%;

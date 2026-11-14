@@ -32,6 +32,13 @@ p {
   font-weight: $font-weight-bold;
   // margin-bottom: 12px;
 }
+.label--sm{
+  font-size: $font-size-body-small;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: $font-weight-bold;
+  // margin-bottom: 12px;
+}
 small {
   font-size: $font-size-small;
   color: $color-text-light;

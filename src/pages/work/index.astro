@@ -3,6 +3,16 @@ import Base from "../../layouts/Base.astro";
 import { selectedProjects as projects } from "../../data/projects";
 import Contact from "../../components/Contact.astro";
 import Icon from "../../Icons/components/Icons.astro";
+import ImageGallery from '../../components/ImageGallery.astro';
+const isExternalLink = (link: string) => /^https?:\/\//i.test(link);
+const images = [
+    { src: "/images/illustrations/illus-01.png", alt: "WEB ILLUSTRATION" },
+  { src: "/images/illustrations/illus-02.png", alt: "Kula design system screen 1" },
+  { src: "/images/illustrations/illus-03.png", alt: "Kula design system screen 3" },
+  { src: "/images/illustrations/illus-04.jpg", alt: "Kula design system screen 4" },
+  { src: "/images/illustrations/illus-05.png", alt: "Kula design system screen 4" },
+  { src: "/images/illustrations/illus-6.png", alt: "Kula design system screen 4" },
+];
 ---
 
 <Base title="Lisandro Eijo — Senior UX/UI Designer">
@@ -51,9 +61,9 @@ import Icon from "../../Icons/components/Icons.astro";
                                     <a
                                         href={project.link}
                                         class="btn btn--primary"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
+                                        target={isExternalLink(project.link) ? "_blank" : undefined}
+                                        rel={isExternalLink(project.link) ? "noopener noreferrer" : undefined}
+                                        aria-label={`See more about ${project.title}`}>
                                         See More
                                         <Icon name="chevron-right" size="md" />
                                     </a>
@@ -63,6 +73,12 @@ import Icon from "../../Icons/components/Icons.astro";
                     ))
                 }
             </div>
+            <ImageGallery
+                metaTag="other work"
+                title="Illustration and icons work"
+                description="A selection of illustration and icons done for clients and personal projects."
+                images={images}
+            />
         </div>
     </section>
     <section id="contact">

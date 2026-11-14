@@ -40,7 +40,7 @@ export const selectedProjects = [
     description:
       "Kula DS is a design system created to ensure consistency and efficiency in the design and development of Kula's digital products. It includes a comprehensive set of components, guidelines, and best practices.",
     tags: ["UX/UI Design", "Design System", "Documentation", "design guidelines"],
-    link: "work/kula/",
+    link: "/work/kula/",
     label: "Kula Design System case study (opens on Behance)",
   }, 
   {

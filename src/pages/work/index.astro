@@ -106,13 +106,29 @@ const images = [
             display: flex;
             gap: $space-6;
             margin: 0 0 $space-20;
+            @media (max-width: #{$bp-md}) {
+                flex-direction: column;
+                .btn__container {
+                    align-items: flex-start;
+                }
+            }
         }
         &__block--even {
             flex-direction: row-reverse;
+            @media (max-width: #{$bp-md}) {
+                flex-direction: column;
+            }
             .project__information {
                 text-align: right;
+                @media (max-width: #{$bp-md}) {
+                    text-align: left;
+                }
                 .btn__container {
                     justify-content: flex-end;
+                    @media (max-width: #{$bp-md}) {
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                    }
                 }
             }
         }
@@ -120,8 +136,11 @@ const images = [
     .project {
         &__image {
             max-width: 464px;
-            height: auto;
+            height: 100%;
             border-radius: $radius-md;
+            @media (max-width: #{$bp-md}) {
+                max-width: 100%;
+            }
         }
 
         &__title {

@@ -481,7 +481,7 @@ import Icon from '../../../Icons/components/Icons.astro';
       window.location.href = '/work/kula';
     }
 
-    document.getElementById('lockBtn').addEventListener('click', () => {
+    document.getElementById('lockBtn')?.addEventListener('click', () => {
       document.cookie = "cs_unlocked=; path=/; max-age=0; SameSite=Strict";
       window.location.href = '/work/kula';
     });

@@ -10,19 +10,26 @@ $neutral-400: #8E91E0;
 $neutral-500: #5D61D3;
 $neutral-600: #4A4DB8;
 $neutral-700: #383A9C;
-$neutral-800: #272880;
+$neutral-800: #272880 ;
 $neutral-900: #171864;
 
 //Brand colors
 $color-primary: $neutral-800;
 $color-accent: #E33575;
 $color-bg: #ffffff;
-$color-text: $neutral-800;
-$color-text-light: $neutral-500;
 
 //status colors
 
 $color-status--danger: red;
+
+//text colors
+$color-text--primary: $color-primary;
+$color-text--body: $neutral-600;
+$color-text--accent: $color-accent;
+$color-text--muted: $neutral-400;
+$color-text--faint: $neutral-300;
+$color-text--inverted: $neutral-50;
+
 
 // Typography
 $font-family: 'Nunito Sans', sans-serif;

@@ -4,16 +4,19 @@
 
 <nav class="nav">
   <div class="nav__inner">
+    <a class="logo" href="/">
+      <img src="/images/logo.svg" alt="">
+    </a>
     <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
     </button>
     <ul class="nav__links">
-      <li><a href="/#home" data-section="home">Home</a></li>
-      <li><a href="/about" data-section="about">About</a></li>
-      <li><a href="/work" data-section="work">Work</a></li>
-      <li><a href="/#contact" data-section="contact">Contact</a></li>
+      <li><a href="/#home" data-page="home">Home</a></li>
+      <li><a href="/about" data-page="about">About</a></li>
+      <li><a href="/work" data-page="work">Work</a></li>
+      <li><a href="/#contact" data-page="contact">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -26,15 +29,22 @@
     top: 0;
     left: 0;
     right: 0;
-    padding: $space-4 0;
     z-index: 100;
     display: flex;
     justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding:0 $space-3;
+    
 
     &__inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 1rem auto;
+      justify-content: space-between;
       position: relative;
       display: flex;
       align-items: center;
+
     }
 
     &__burger {
@@ -83,7 +93,7 @@
         transition: color 0.2s ease;
         padding: 1.5rem 2rem;
         border-bottom: 4px solid transparent;
-        background-color: rgba(255, 255, 255, 0.9);
+        
 
         &.active {
           border-bottom-color: $color-accent;
@@ -113,6 +123,7 @@
         right: 0;
         border-radius: $radius-md;
         overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.9);
 
         &.is-open {
           display: flex;
@@ -156,24 +167,28 @@
     });
   });
 
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll("[data-section]");
+  const navLinks = document.querySelectorAll("[data-page]");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLinks.forEach((link) => {
-            link.classList.remove("active");
-            if (link.getAttribute("data-section") === entry.target.id) {
-              link.classList.add("active");
-            }
-          });
-        }
-      });
-    },
-    { threshold: 0.4 },
-  );
+  function getCurrentPage() {
+    const path = window.location.pathname.replace(/\/+$/, "") || "/";
 
-  sections.forEach((section) => observer.observe(section));
+    if (path === "/about") return "about";
+    if (path === "/work") return "work";
+    if (path === "/") {
+      return window.location.hash === "#contact" ? "contact" : "home";
+    }
+
+    return null;
+  }
+
+  function updateActivePage() {
+    const currentPage = getCurrentPage();
+
+    navLinks.forEach((link) => {
+      link.classList.toggle("active", link.getAttribute("data-page") === currentPage);
+    });
+  }
+
+  updateActivePage();
+  window.addEventListener("hashchange", updateActivePage);
 </script>

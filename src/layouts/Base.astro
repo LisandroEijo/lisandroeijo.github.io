@@ -20,7 +20,11 @@ const { showNav = true } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    { showNav && <Nav /> }
+    <div class="container">
+     
+      { showNav && <Nav /> }
+      
+    </div>
     <main>
       <slot />
     </main>

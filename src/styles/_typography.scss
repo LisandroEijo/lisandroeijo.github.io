@@ -23,7 +23,7 @@ p {
   font-size: $font-size-body;
   font-weight: $font-weight-regular;
   line-height: 1.4;
-  color: $color-text;
+  color: $color-text--body;
 }
 .label--xs{
   font-size: $font-size-body-xsmall;
@@ -41,7 +41,7 @@ p {
 }
 small {
   font-size: $font-size-small;
-  color: $color-text-light;
+  color: $color-text--muted;
 }
 
 .text-accent {

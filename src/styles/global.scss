@@ -7,6 +7,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;900&display=swap');
 
+body{
+  font-family: $font-family;
+  font-size: 14px;
+}
+main {
+  padding: $space-16 0;
+}
 .container {
   width: 100%;
   max-width: $max-width;

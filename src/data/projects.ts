@@ -29,20 +29,20 @@ export const featuredProjects = [
     link: "https://www.behance.net/gallery/114174817/Nuin-App",
     label: "Nuin, mobile app case study (opens on Behance)",
   },
-  
+
 ];
 
 export const selectedProjects = [
   {
     image: "/images/proyect-gallery_Kula_Design-System.png",
-    title:"Kula DS",
+    title: "Kula DS",
     subtitle: "Design System for Kula",
     description:
       "Kula DS is a design system created to ensure consistency and efficiency in the design and development of Kula's digital products. It includes a comprehensive set of components, guidelines, and best practices.",
     tags: ["UX/UI Design", "Design System", "Documentation", "design guidelines"],
     link: "/work/kula/",
     label: "Kula Design System case study (opens on Behance)",
-  }, 
+  },
   {
     image: "/images/proyect-gallery_smart-savings.png",
     title: "Smart Savings",
@@ -60,7 +60,7 @@ export const selectedProjects = [
     description:
       "FloraKnow is a mobile app that helps users identify plants and learn about their care requirements. This project focuses on creating an intuitive interface for plant enthusiasts and beginners alike.",
     tags: ["UX/UI Design", "Mobile App", "Plant Care", "Product Discovery"],
-    link: "https://www.behance.net/gallery/245960381/FloraKnow-Plant-Identification-App",
+    link: "https://www.behance.net/gallery/196002239/FloraKnow-Plant-Care-App",
     label: "FloraKnow app case study (opens on Behance)",
   },
   {
@@ -81,7 +81,7 @@ export const selectedProjects = [
       "HCI is a project aimed at improving internal communication within remote teams. The focus was on designing a tool that enhances collaboration and information sharing among team members.",
     tags: ["UX/UI Design", "Collaboration Tool", "Remote Work", "Product Discovery"],
     link: "https://www.behance.net/gallery/123602481/HCI-03-INTERNAL-COMMUNICATION-TOOL-UXUI-DESIGN",
-    label: "HCI project case study (opens on Behance)", 
+    label: "HCI project case study (opens on Behance)",
   },
   {
     image: "/images/proyect-gallery_Nuin.png",

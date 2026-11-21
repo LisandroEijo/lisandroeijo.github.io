@@ -1,11 +1,10 @@
 ---
-
 ---
 
 <nav class="nav">
   <div class="nav__inner">
     <a class="logo" href="/">
-      <img src="/logo-alt.svg" alt="Lisandro Eijo logo" />
+      <img src="/images/logo.svg" alt="Lisandro Eijo logo" />
     </a>
     <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
       <span></span>
@@ -13,10 +12,26 @@
       <span></span>
     </button>
     <ul class="nav__links">
-      <li><a href="/#home" data-page="home">Home</a></li>
-      <li><a href="/about" data-page="about">About</a></li>
-      <li><a href="/work" data-page="work">Work</a></li>
-      <li><a href="/#contact" data-page="contact">Contact</a></li>
+      <li>
+        <a href="/#home" data-page="home">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="/about" data-page="about">
+          About
+        </a>
+      </li>
+      <li>
+        <a href="/work" data-page="work">
+          Work
+        </a>
+      </li>
+      <li>
+        <a href="/#contact" data-page="contact">
+          Contact
+        </a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -33,8 +48,7 @@
     display: flex;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.9);
-    padding:0 $space-3;
-    
+    padding: 0 $space-3;
 
     &__inner {
       width: 100%;
@@ -44,7 +58,6 @@
       position: relative;
       display: flex;
       align-items: center;
-
     }
 
     &__burger {
@@ -93,7 +106,6 @@
         transition: color 0.2s ease;
         padding: 1.5rem 2rem;
         border-bottom: 4px solid transparent;
-        
 
         &.active {
           border-bottom-color: $color-accent;
@@ -185,7 +197,10 @@
     const currentPage = getCurrentPage();
 
     navLinks.forEach((link) => {
-      link.classList.toggle("active", link.getAttribute("data-page") === currentPage);
+      link.classList.toggle(
+        "active",
+        link.getAttribute("data-page") === currentPage,
+      );
     });
   }
 
